@@ -1,0 +1,4 @@
+# ignore prepros configs
+prepros.config
+.sass-cache/
+css/main-dist.css
