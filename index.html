@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="shortcut icon" href="img/logo_sushi.svg" type="image/x-icon">
+    <!--  -->
     <script src="https://kit.fontawesome.com/eeacb9ff0f.js" crossorigin="anonymous"></script>
     <title>Магия Фудзи</title>
 </head>
@@ -11,10 +12,18 @@
     <header class="header">
         <!-- HEADER MENU -->
         <nav class="nav">
+            <!-- HEADER MENU INFO -->
             <div class="nav__info">
-                <span>Санкт-Петербург</span>
-                <span>+7 (800) 555 3535</span>
+                <div class="nav__contacts">
+                    <div class="nav__place">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h2>Санкт-Петербург</h2>
+                    </div>
+                    <a class="nav__number hover-line" href="tel:+78005553535">+7 (800) 555 3535</a>
+                </div>
+                <a class="nav__about-us hover-line" href="pages/about-us.html">О нас</a>
             </div>
+            <!-- HEADER MENU LOGO -->
             <a href="index.html" class="nav__logo">
                 <img src="img/header/header_sushi.svg">
                 <div class="nav__logo_text">
@@ -22,11 +31,22 @@
                     <span>Фудзи</span>
                 </div>
             </a>
-            <div class="nav__menu">
-
-                <div class="cart">
-
+            <!-- HEADER MENU ACCOUNT -->
+            <div class="nav__acc">
+                <div class="nav__login">
+                    <a class="nav__login_key hover-line" href="pages/login.html">
+                        <i class="fas fa-key"></i>
+                        Вход
+                    </a>
+                    <a class="nav__login_lock hover-line" href="pages/registration.html">
+                        <i class="fas fa-lock"></i>
+                        Регистрация
+                    </a>
                 </div>
+                <a class="nav__cart" href="pages/cart.html">
+                    <i class="fas fa-shopping-basket"></i>
+                    <span class="nav__sum">0</span>
+                </a>
             </div>
         </nav>
     </header>
@@ -40,7 +60,7 @@
 </html>
 
 <!--
-    cart: <i class="fas fa-shopping-basket"></i>
+    cart:
     facebook: <i class="fab fa-facebook-f"></i>
     instagram: <i class="fab fa-instagram"></i>
     vkontakte: <i class="fab fa-vk"></i>

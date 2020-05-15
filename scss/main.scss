@@ -20,7 +20,7 @@
 .header {
     width: 100%;
     height: 100px;
-    padding: 0 150px;
+    padding: 0 25px;
     display: flex;
     justify-content: center;
     position: fixed;
@@ -28,6 +28,7 @@
     top: 0;
     background: #ffffff;
     box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.15);
+    border-bottom: 1px solid #cccccc;
 }
 
 /* HEADER MENU */
@@ -37,16 +38,66 @@
     max-width: 1200px;
     height: 100%;
     display: grid;
-    grid-gap: 5%;
+    grid-gap: 25px;
     grid-template-columns: repeat(3, 1fr);
     justify-content: space-between;
 }
 
-.nav__info { border: 1px red solid;
+/* HEADER MENU INFO */
+
+.nav__info {
+    min-width: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.nav__contacts {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    margin-right: 25px;
+}
+
+.nav__number {
+       position: relative;
+       text-decoration: none;
+       font-family: 'Montserrat Alternates', sans-serif;
+       font-size: 16px;
+       font-weight:400;
+       color: #38454F;
+       transition: all 0.2s linear;
+}
+
+.nav__place {
+    display: flex;
+    align-items: center;
+    .fas {
+        margin-right: 5px;
+        font-size: 20px;
+        color: #ff7675;
+    }
+    h2 {
+        font-family: 'Montserrat Alternates', sans-serif;
+        font-size: 20px;
+        font-weight:600;
+        color: #38454F;
+    }
+}
+
+.nav__about-us {
+    position: relative;
+    text-decoration: none;
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-size: 20px;
+    font-weight:400;
+    color: #38454F;
 
 }
 
-.nav__logo { border: 1px red solid;
+/* HEADER MENU LOGO */
+
+.nav__logo {
     justify-self: center;
     align-self: center;
     display: flex;
@@ -54,7 +105,7 @@
     color: #38454F;
     transition: color 0.15s linear;
     &:hover {
-        color: #ED7161;
+        color: #ff7675;
     }
     img {
         width: 65px;
@@ -76,8 +127,114 @@
     }
 }
 
-.nav__menu { border: 1px red solid;
+.hover-line {
+    &::after {
+            content: "";
+            width: 0;
+            height: 1px;
+            display: block;
+            position: absolute;
+            z-index: 1;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: all .2s ease-in-out;
+            background: #ff7675;
+        }
+        &:hover, {
+            color: #ff7675;
+        }
+        &:hover::after {
+            width: 100%;
+        }
+}
 
+/* HEADER MENU ACCOUNT */
+
+.nav__acc {
+    min-width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.nav__login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav__login_key {
+    position: relative;
+    text-decoration: none;
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-size: 16px;
+    font-weight:400;
+    color: #38454F;
+    .fas {
+        margin-right: 5px;
+    }
+}
+
+.nav__login_lock {
+    margin-left: 25px;
+    position: relative;
+    text-decoration: none;
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-size: 16px;
+    font-weight:400;
+    color: #38454F;
+    .fas {
+        margin-right: 5px;
+    }
+}
+
+.nav__cart {
+    width: 75px;
+    height: 75px;
+    margin-left: 25px;
+    position: relative;
+    text-decoration: none;
+    &:hover .fas {
+        color: #FFFFFF;
+        background: #ff7675;
+    }
+    &:hover .nav__sum {
+        color: #FFFFFF;
+        background: rgba(0, 0, 0, 0);
+    }
+}
+
+.nav__cart > i {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 45px;
+    color:#ff7675;
+    transition: all 0.2s linear;
+}
+
+.nav__sum {
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    transform: translate3d(-4px, 10px, 0);
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    color: #333333;
+    font-size: 18px;
+    transition: all 0.2s linear;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.2);
 }
 
 /* MAIN */
@@ -85,7 +242,6 @@
 .main {
     width: 100%;
     height: 100vh;
-    padding: 100px 150px 50px;
     background: #eeeeee;
 }
 
