@@ -85,9 +85,12 @@
 	position: relative;
 	text-decoration: none;
 	font-family: "Montserrat Alternates", sans-serif;
-	font-size: 20px;
+	font-size: 16px;
 	font-weight: 400;
 	color: #38454F;
+}
+.nav__about-us .fas {
+	margin-right: 5px;
 }
 
 /* HEADER MENU LOGO */
@@ -119,26 +122,6 @@
 .nav__logo_text span:first-child {
 	font-size: 30px;
 	font-weight: 800;
-}
-
-.hover-line::after {
-	content: "";
-	width: 0;
-	height: 1px;
-	display: block;
-	position: absolute;
-	z-index: 1;
-	bottom: 0;
-	left: 50%;
-	transform: translateX(-50%);
-	transition: all 0.2s ease-in-out;
-	background: #ff7675;
-}
-.hover-line:hover {
-	color: #ff7675;
-}
-.hover-line:hover::after {
-	width: 100%;
 }
 
 /* HEADER MENU ACCOUNT */
@@ -226,6 +209,27 @@
 	transition: all 0.2s linear;
 	border-radius: 50%;
 	background: rgba(0, 0, 0, 0.2);
+}
+
+/* HEADER HOVER BOTTOM LINE */
+.hover-line::after {
+	content: "";
+	width: 0;
+	height: 1px;
+	display: block;
+	position: absolute;
+	z-index: 1;
+	bottom: -3px;
+	left: 50%;
+	transform: translateX(-50%);
+	transition: all 0.2s ease-in-out;
+	background: #ff7675;
+}
+.hover-line:hover {
+	color: #ff7675;
+}
+.hover-line:hover::after {
+	width: 100%;
 }
 
 /* MAIN */
