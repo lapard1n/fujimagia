@@ -1,9 +1,13 @@
-/* FONT DECOR */
-@import url('https://fonts.googleapis.com/css2?family=Pattaya&display=swap');
 /* FONT TITLE */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300;400;500;600;700;800&display=swap');
 /* FONT PARAGRAPH */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap');
+
+%sizes {
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 15px;
+}
 
 * {
     margin: 0;
@@ -20,7 +24,6 @@
 .header {
     width: 100%;
     height: 100px;
-    padding: 0 25px;
     display: flex;
     justify-content: center;
     position: fixed;
@@ -34,10 +37,7 @@
 /* HEADER MENU */
 
 .nav {
-    width: 100%;
-    max-width: 1200px;
-    height: 100%;
-    padding: 0 15px;
+    @extend %sizes;
     display: grid;
     grid-gap: 25px;
     grid-template-columns: repeat(3, 1fr);
@@ -58,16 +58,6 @@
     flex-flow: column nowrap;
     align-items: center;
     margin-right: 25px;
-}
-
-.nav__number {
-    position: relative;
-    text-decoration: none;
-    font-family: 'Montserrat Alternates', sans-serif;
-    font-size: 16px;
-    font-weight:400;
-    color: #38454F;
-    transition: all 0.2s linear;
 }
 
 .nav__place {
@@ -92,8 +82,8 @@
     justify-self: center;
     align-self: center;
     display: flex;
-    text-decoration: none;
     color: #38454F;
+    text-decoration: none;
     transition: color 0.15s linear;
     &:hover {
         color: #ff7675;
@@ -105,7 +95,7 @@
 
 .nav__logo_text {
     display: flex;
-    flex-flow: column wrap;
+    flex-flow: column;
     justify-content: center;
     padding-left: 10px;
     font-family: 'Montserrat Alternates', sans-serif;
@@ -160,7 +150,7 @@
     align-items: center;
     justify-content: center;
     font-size: 45px;
-    color:#ff7675;
+    color: #ff7675;
     transition: all 0.2s linear;
 }
 
@@ -224,7 +214,6 @@
 
 .main {
     width: 100%;
-    height: 100vh;
     padding-top: 100px;
     background: #eeeeee;
 }
@@ -233,12 +222,55 @@
 
 .slider {
     width: 100%;
-    height: 300px;
+    height: 500px;
+    position: relative;
+    overflow: hidden;
+    &:hover .slide {
+        transform: scale(1.05);
+    }
+}
+
+.slide {
+    width: inherit;
+    height: inherit;
+    transition: all 0.2s linear;
+    background: no-repeat center url('../img/main/background.jpg');
+/* background-attachment: fixed; */
+}
+
+.slider__arrow {
+    width: 50px;
+    height: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: no-repeat center url('../img/main/background.jpg');
-    background-attachment: fixed;
+    position: absolute;
+    z-index: 1;
+    border-radius: 50%;
+    background-color:rgba(56, 69, 79, 0.5);
+    cursor: pointer;
+    .fas {
+        font-size: 50px;
+        color: #ffffff;
+    }
+}
+
+.slider__arrow_left {
+    top: 50%;
+    left: -25%;
+    transform: translateY(-50%);
+    .fas {
+        transform: translateX(-10%);
+    }
+}
+
+.slider__arrow_right {
+    top: 50%;
+    right: -25%;
+    transform: translateY(-50%);
+    .fas {
+        transform: translateX(10%);
+    }
 }
 
 .title {
@@ -250,6 +282,11 @@
     align-items: center;
     position: relative;
     background-color:rgba(56, 69, 79, 0.5);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    z-index: 1;
     &::after {
         content: "";
         width: 2px;
@@ -332,15 +369,19 @@
 /* FOOD CARDS LINKS */
 
 .links {
-    width: 100%;
-    max-width: 1200px;
+    @extend %sizes;
     height: auto;
     margin: 35px 0;
-    padding: 0 15px;
 }
 
 .links__btns {
     display: flex;
+    align-items: center;
+}
+
+.links__img {
+    width: 25px;
+    height: 25px;
 }
 
 .btn-case {
@@ -353,7 +394,7 @@
         padding-left: 0;
     }
     &:last-child {
-        border: none;
+        border-right: none;
         padding-right: 0;
     }
 }
@@ -370,11 +411,12 @@
 /* FOOD CARDS */
 
 .card-case {
-
+    @extend %sizes;
+    height: auto;
 }
 
 .card {
-    height: 200vh;
+
 }
 
 /* X */
