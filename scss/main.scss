@@ -9,6 +9,12 @@
     padding: 0 15px;
 }
 
+%center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -222,11 +228,11 @@
 
 .slider {
     width: 100%;
-    height: 500px;
+    height: 50vh;
     position: relative;
     overflow: hidden;
     &:hover .slide {
-        transform: scale(1.05);
+        transform: scale(1.02);
     }
 }
 
@@ -235,23 +241,28 @@
     height: inherit;
     transition: all 0.2s linear;
     background: no-repeat center url('../img/main/background.jpg');
-/* background-attachment: fixed; */
 }
 
 .slider__arrow {
     width: 50px;
     height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @extend %center;
     position: absolute;
     z-index: 1;
     border-radius: 50%;
     background-color:rgba(56, 69, 79, 0.5);
+    transition: all .1s linear;
     cursor: pointer;
+    &:hover {
+        background-color:rgba(255, 255, 255, 0.9);
+    }
     .fas {
         font-size: 50px;
         color: #ffffff;
+        transition: all .1s linear;
+    }
+    &:hover .fas {
+        color: #ff7675;
     }
 }
 
@@ -369,12 +380,19 @@
 /* FOOD CARDS LINKS */
 
 .links {
-    @extend %sizes;
-    height: auto;
-    margin: 35px 0;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    background: #ffffff;
+    box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.15),
+                0 -1.5px 3px rgba(0, 0, 0, 0.15);
+    border-top: 1px solid #cccccc;
+    border-bottom: 1px solid #cccccc;
 }
 
 .links__btns {
+    @extend %sizes;
     display: flex;
     align-items: center;
 }
@@ -412,17 +430,166 @@
 
 .card-case {
     @extend %sizes;
-    height: auto;
+    margin: 15px 0;
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    justify-content: space-between;
+    grid-gap: 15px;
 }
 
 .card {
-
+    width: 280px;
+    height: 400px;
+    overflow: hidden;
+    background: #ffffff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    border-radius: 2%;
+    &:hover .card__img-case .card__img {
+        transform: scale(1.05);
+    }
+    &:hover .card__text {
+        background-color: #ff7675;
+    }
+    &:hover .card__text .card__title h1 {
+        color: #ffffff;
+    }
+    &:hover .card__text .card__title h1::after {
+        width: 100%;
+    }
+    &:hover .card__text .card__price .card__price_sum {
+        color: #ffffff;
+    }
+    &:hover .card__text .card__price .card__price_buy {
+        color: #ff7675;
+        background: #ffffff;
+    }
+    &:hover .card__text .card__price .card__quantity {
+        color: #ff7675;
+        background: #ffffff;
+    }
 }
 
-/* X */
+.card__img-case{
+    width: 100%;
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
 
-.x {
+.card__img {
+    transition: all 0.2s linear;
+}
 
+.card-logo-case {
+    width: 50px;
+    height: 50px;
+    @extend %center;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 15px;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    background-color:rgba(56, 69, 79, 0.5);
+}
+
+.card__logo {
+    width: 35px;
+    height: 35px;
+}
+
+.card__text {
+    width: 100%;
+    height: 30%;
+    position: relative;
+    transition: all .2s linear;
+}
+
+.card__title {
+    width: 100%;
+    height: 40%;
+    @extend %center;
+}
+
+.card__title h1 {
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-size: 20px;
+    font-weight:400;
+    color: #38454F;
+    position: relative;
+    &::after {
+        content: "";
+        width: 0;
+        height: 1px;
+        display: block;
+        position: absolute;
+        z-index: 1;
+        bottom: -3px;
+        left: 50%;
+        transform: translateX(-50%);
+        transition: all .2s ease-in-out;
+        background: #ffffff;
+    }
+}
+
+.card__price {
+    width: 100%;
+    height: 60%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+}
+
+.card__price_sum {
+    text-decoration: none;
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-size: 30px;
+    font-weight:600;
+    color: #38454F;
+}
+
+.card__price_buy {
+    width: 120px;
+    height: 37px;
+    text-decoration: none;
+    text-align: center;
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-size: 20px;
+    font-weight:600;
+    color: #ffffff;
+    background: #ff7675;
+    transition: all .2s linear;
+    cursor: pointer;
+}
+
+.card__quantity { /* ОТКЛЮЧЕННАЯ ФУНКЦИЯ ПОКУПКИ */
+    width: 120px;
+    height: 37px;
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    z-index: 1;
+    top: 42px;
+    right: 22px;
+    transform: translateY(-50%);
+    color: #ffffff;
+    background: #ff7675;
+    span {
+        font-family: 'Montserrat Alternates', sans-serif;
+        font-size: 20px;
+        font-weight: 700;
+        color: inherit;
+    }
+    button {
+        height: 100%;
+        width: 40%;
+        font-size: 20px;
+        color: inherit;
+        cursor: pointer;
+    }
 }
 
 /* FOOTER */
