@@ -1,0 +1,22 @@
+/* RULES*/
+
+@import "fragments/_rules.scss";
+
+/* HEADER */
+
+@import "fragments/_header.scss";
+
+/* MAIN */
+
+.main {
+    width: 100%;
+    height: 90vh;
+    margin-top: 100px;
+    background: #eeeeee;
+    position: relative;
+}
+
+/* FOOTER */
+
+@import "fragments/_footer.scss";
+

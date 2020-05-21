@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Магия Фудзи</title>
+    <link rel="stylesheet" type="text/css" href="../css/login.css">
+    <link rel="shortcut icon" href="../img/logo_sushi.svg" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/eeacb9ff0f.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header class="header">
+        <!-- HEADER MENU -->
+        <nav class="nav">
+            <!-- HEADER MENU INFO -->
+            <div class="nav__info">
+                <div class="nav__contacts">
+                    <div class="nav__place">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h2>Санкт-Петербург</h2>
+                    </div>
+                    <a class="nav__links hover-line" href="tel:+78005553535">+7 (800) 555 3535</a>
+                </div>
+                <a class="nav__links hover-line" href="../pages/about-us.html">
+                    <i class="fas fa-pencil-alt"></i>
+                    О нас
+                </a>
+            </div>
+            <!-- HEADER MENU LOGO -->
+            <a href="../index.html" class="nav__logo">
+                <img src="../img/header/header_sushi.svg">
+                <div class="nav__logo_text">
+                    <span>Магия</span>
+                    <span>Фудзи</span>
+                </div>
+            </a>
+            <!-- HEADER MENU ACCOUNT -->
+            <div class="nav__acc">
+                <div class="nav__login">
+                    <a class="nav__links hover-line" href="../pages/login.html">
+                        <i class="fas fa-key"></i>
+                        Вход
+                    </a>
+                    <a class="nav__links hover-line" href="../pages/registration.html">
+                        <i class="fas fa-lock"></i>
+                        Регистрация
+                    </a>
+                </div>
+                <a class="nav__cart" href="../pages/cart.html">
+                    <i class="fas fa-shopping-basket"></i>
+                    <span class="nav__sum">0</span>
+                </a>
+            </div>
+        </nav>
+    </header>
+    <main class="main">
+        <!-- LOGIN FORM -->
+        <div class="login">
+            <div class="login__img">
+                <div class="login__background"></div>
+                <!-- LOGIN TITLE -->
+                <div class="title">
+                    <h1 class="title__sub">Суши с Фудзи</h1>
+                    <h1 class="title__sup">И в этом наша магия</h1>
+                </div>
+            </div>
+            <div class="login-case">
+                <div class="login__title">
+                    <h1 class="login-form__title">Добро</h1>
+                    <h1 class="login-form__title">Пожаловать</h1>
+                </div>
+                <form action="../index.html" class="login__form" method="POST" >
+                    <input class="username" type="text" name="username" placeholder="Ваше имя" autocomplete="on" autofocus required>
+                    <input class="password" type="password" name="password" placeholder="Ваш пароль" required>
+                    <div class="login__help">
+                        <input class="remember" type="checkbox">
+                        <span>Запомнить меня</span>
+                        <a href="#">Забыли пароль?</a>
+                    </div>
+                    <input class="button" type="submit" value="Вход">
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="footer-case">
+            <!-- FOOTER LOGOTYPE -->
+            <a class="footer__logo" href="../index.html">
+                <div class="footer__img">
+                    <img class="footer__img_back" src="../img/logo_sushi.svg">
+                    <img class="footer__img_middle" src="../img/main/links_logo.svg">
+                    <img class="footer__img_front" src="../img/header/header_sushi.svg">
+                </div>
+                <div class="footer__title">
+                    <span class="footer__title_sub">Магия</span>
+                    <span class="footer__title_sup">Фудзи</span>
+                    <div class="footer__title_text">
+                        <i>— "суши с фудзи</i>
+                        <i>и в этом наша магия"</i>
+                    </div>
+
+                </div>
+            </a>
+            <!-- FOOTER SOCIAL NETWORK SECTION -->
+            <div class="footer__soc">
+                <h1 class="footer__h1">Будьте с нами</h1>
+                <div class="footer__net">
+                    <a href="#" class="footer_item facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="footer_item instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="footer_item vkontakte">
+                        <i class="fab fa-vk"></i>
+                    </a>
+                    <a href="#" class="footer_item youtube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+                <h1 class="footer__h1">Будем вместе</h1>
+            </div>
+            <!-- FOOTER ABOUT US -->
+            <div class="footer__about-us">
+                <div class="footer__sub">
+                    <div class="footer__about-us_title">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h1 class="footer__h1">Контакты:</h1>
+                    </div>
+                    <div class="footer__contacts">
+                        <a class="nav__links hover-line" href="tel:+77832742913">+7 (783) 274 2913</a>
+                        <a class="nav__links hover-line"href="mailto:fujimagia@office.io">fujimagia@office.io</a>
+                    </div>
+                </div>
+                <div class="hr"></div>
+                <div class="footer__sup">
+                    <div class="footer__app">
+                        <a class="footer_play" href="#">
+                            <i class="fab fa-google-play"></i>
+                        </a>
+                        <div class="footer__app_title">
+                            <h1 class="footer__h1">Скачать</h1>
+                            <h1 class="footer__h1">Приложения</h1>
+                        </div>
+                        <a class="footer_play" href="#">
+                            <i class="fab fa-apple"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
