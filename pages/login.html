@@ -68,8 +68,8 @@
                     <h1>Пожаловать</h1>
                 </div>
                 <form action="../index.html" class="login__form" method="POST" >
-                    <input class="input" type="text" name="username" placeholder="Ваше имя" autocomplete="on" autofocus>
-                    <input class="input" type="password" name="password" placeholder="Ваш пароль">
+                    <input class="input" type="text" name="username" placeholder="Ваше имя" autofocus>
+                    <input class="input" type="password" name="password" placeholder="Ваш пароль" readonly onfocus="this.removeAttribute('readonly')">
                     <div class="login__help">
                         <a class="login__help_link hover-line" href="#">Забыли пароль?</a>
                     </div>

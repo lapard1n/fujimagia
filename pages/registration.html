@@ -64,12 +64,16 @@
                     <h1>Пожаловать</h1>
                 </div>
                 <form action="../index.html" class="login__form" method="POST" >
-                    <input class="input" type="text" name="username" placeholder="введите ваше имя" autocomplete="on" autofocus>
-                    <input class="input" type="email" name="username" placeholder="введите вашу почту" autocomplete="on">
-                    <input class="input" type="tel" name="username" placeholder="введите ваш номер" autocomplete="on" >
-                    <input class="input" type="password" name="password" placeholder="введите ваш пароль">
-                    <input class="input" type="password" name="password" placeholder="повторите пароль">
+                    <input class="input" type="text" name="username" placeholder="Введите ваше имя" autocomplete="on" autofocus>
+                    <div class="login__choice">
+                        <input class="input mail" type="email" name="username" placeholder="Ваша почта">
+                        <span>или</span>
+                        <input class="input tel" type="tel" name="username" placeholder="Ваш номер">
+                    </div>
+                    <input class="input" type="password" name="password" placeholder="Введите ваш пароль" readonly onfocus="this.removeAttribute('readonly')">
+                    <input class="input" type="password" name="password" placeholder="Повторите пароль" readonly onfocus="this.removeAttribute('readonly')">
                     <input class="button" type="submit" value="Регистрация">
+                </form>
             </div>
         </section>
     </main>

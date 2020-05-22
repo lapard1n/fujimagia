@@ -9,7 +9,7 @@
 	padding: 0 15px;
 }
 
-.footer_play, .footer__app_title, .footer__app, .footer__sup, .footer__contacts, .footer__about-us_title, .footer__sub, .footer__about-us, .footer_item, .footer__soc, .footer__title, .footer, .login-case, .main {
+.footer_play, .footer__app_title, .footer__app, .footer__sup, .footer__contacts, .footer__about-us_title, .footer__sub, .footer__about-us, .footer_item, .footer__soc, .footer__title, .footer, .login__form, .login-case, .main {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -210,19 +210,22 @@
 	width: 100%;
 }
 
+.header {
+	position: relative;
+}
+
 /* MAIN */
 .main {
 	width: 100%;
-	height: 100vh;
-	padding-top: 100px;
+	height: 90vh;
 	background: #eeeeee;
 }
 
 .login {
-	width: 60%;
-	min-width: 300px;
-	height: 70%;
-	min-height: 400px;
+	width: 70%;
+	min-width: 400px;
+	height: 80%;
+	min-height: 500px;
 	display: flex;
 	position: relative;
 	box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
@@ -249,9 +252,9 @@
 }
 
 .login-case {
-	width: 50%;
-	height: 100%;
-	min-width: 300px;
+	width: 60%;
+	max-width: 500px;
+	min-width: 400px;
 	height: 100%;
 	min-height: 400px;
 	flex-flow: column;
@@ -264,8 +267,8 @@
 }
 
 .login__title {
-	width: 80%;
-	margin-bottom: 20px;
+	width: 85%;
+	margin-bottom: 5%;
 	position: relative;
 }
 .login__title h1 {
@@ -279,27 +282,47 @@
 }
 
 .login__form {
-	width: 80%;
+	width: 85%;
+	flex-flow: column;
+}
+
+.login__choice {
+	width: 100%;
+	display: flex;
+	align-items: baseline;
+	justify-content: space-between;
+}
+.login__choice input {
+	width: 42.5%;
+}
+.login__choice span {
+	font-family: "Montserrat Alternates", sans-serif;
+	text-transform: lowercase;
+	font-size: 20px;
+	line-height: 20px;
+	font-weight: 400;
+	color: #38454F;
 }
 
 .input {
 	width: 100%;
 	height: 50px;
 	margin-bottom: 15px;
-	padding: 20px;
+	padding: 15px;
 	border: 1px solid #38454F;
-	border-radius: 15px;
+	border-radius: 10px;
 	background: #ffffff;
 	font-family: "Montserrat Alternates", sans-serif;
-	font-size: 20px;
+	font-size: 16px;
 	font-weight: 400;
 	color: #38454F;
 	transition: all 0.1s linear;
 }
 .input::placeholder {
 	opacity: 0.8;
+	text-align: center;
 	font-family: "Montserrat Alternates", sans-serif;
-	font-size: 15px;
+	font-size: 14px;
 	font-weight: 400;
 	font-style: italic;
 	letter-spacing: 1px;
@@ -307,11 +330,13 @@
 }
 .input:hover, .input:focus {
 	border: 1px solid #FF7675;
+	box-shadow: 0px 0px 5px 1.5px rgba(0, 0, 0, 0.2);
 }
 
 .button {
 	width: 60%;
 	height: 50px;
+	margin-top: 5%;
 	border: 1px solid #38454F;
 	border-radius: 15px;
 	background: #ffffff;
@@ -454,6 +479,7 @@
 	text-decoration: none;
 	background: #ffffff;
 	border-radius: 50%;
+	box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.25);
 	transition: all 0.2s linear;
 }
 .footer_item .fab {
@@ -542,6 +568,7 @@
 	text-decoration: none;
 	background: #38454F;
 	border-radius: 10px;
+	box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.25);
 	transition: all 0.2s linear;
 }
 .footer_play .fab {

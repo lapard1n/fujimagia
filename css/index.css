@@ -695,6 +695,7 @@
 	text-decoration: none;
 	background: #ffffff;
 	border-radius: 50%;
+	box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.25);
 	transition: all 0.2s linear;
 }
 .footer_item .fab {
@@ -783,6 +784,7 @@
 	text-decoration: none;
 	background: #38454F;
 	border-radius: 10px;
+	box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.25);
 	transition: all 0.2s linear;
 }
 .footer_play .fab {
