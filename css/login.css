@@ -248,7 +248,8 @@
 }
 
 .title {
-	width: 420px;
+	width: 80%;
+	max-width: 475px;
 	height: 120px;
 	flex-flow: column;
 	position: relative;
@@ -285,6 +286,8 @@
 }
 
 .title__sub {
+	width: 100%;
+	text-align: center;
 	position: relative;
 	font-family: "Montserrat Alternates", sans-serif;
 	text-transform: uppercase;
@@ -295,7 +298,7 @@
 }
 .title__sub::before {
 	content: "";
-	width: 500px;
+	width: 115%;
 	height: 2px;
 	display: block;
 	position: absolute;
@@ -307,6 +310,8 @@
 }
 
 .title__sup {
+	width: 100%;
+	text-align: center;
 	position: relative;
 	font-family: "Montserrat Alternates", sans-serif;
 	text-transform: uppercase;
@@ -317,7 +322,7 @@
 }
 .title__sup::after {
 	content: "";
-	width: 500px;
+	width: 115%;
 	height: 2px;
 	display: block;
 	position: absolute;
@@ -359,33 +364,31 @@
 	flex-flow: column;
 }
 
-.name-pass {
+.input {
 	width: 100%;
 	height: 50px;
 	margin-bottom: 15px;
 	padding: 20px;
 	border: 1px solid #38454F;
 	border-radius: 15px;
-	background: #eeeeee;
+	background: #ffffff;
 	font-family: "Montserrat Alternates", sans-serif;
 	font-size: 20px;
 	font-weight: 400;
 	color: #38454F;
 	transition: all 0.1s linear;
 }
-.name-pass::placeholder {
+.input::placeholder {
+	opacity: 0.8;
 	font-family: "Montserrat Alternates", sans-serif;
 	font-size: 15px;
 	font-weight: 400;
 	font-style: italic;
 	letter-spacing: 1px;
+	color: #38454F;
 }
-.name-pass:hover, .name-pass:focus {
-	border: 0;
-	color: #ffffff;
-	background: #FF7675;
-	text-shadow: 1.5px 1.5px 3px rgba(0, 0, 0, 0.25);
-	box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+.input:hover, .input:focus {
+	border: 1px solid #FF7675;
 }
 
 .login__help {
@@ -425,7 +428,7 @@
 	height: 50px;
 	border: 1px solid #38454F;
 	border-radius: 15px;
-	background: #eeeeee;
+	background: #ffffff;
 	font-family: "Montserrat Alternates", sans-serif;
 	text-transform: uppercase;
 	font-size: 20px;
@@ -435,12 +438,15 @@
 	transition: all 0.1s linear;
 	cursor: pointer;
 }
-.button:hover, .button:focus {
+.button:hover {
 	border: 0;
-	color: #ffffff;
 	background: #FF7675;
+	color: #ffffff;
 	text-shadow: 1.5px 1.5px 3px rgba(0, 0, 0, 0.25);
-	box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+	box-shadow: 0px 0px 5px 1.5px rgba(0, 0, 0, 0.2);
+}
+.button:active {
+	box-shadow: inset 0px 0px 5px 1.5px rgba(0, 0, 0, 0.2);
 }
 
 /* FOOTER */
