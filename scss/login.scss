@@ -1,10 +1,10 @@
 /* RULES*/
 
-@import "fragments/_rules.scss";
+@import "_rules.scss";
 
 /* HEADER */
 
-@import "fragments/_header.scss";
+@import "_header.scss";
 
 .header {
     position: relative;
@@ -55,7 +55,7 @@
     @extend %center;
     flex-flow: column;
     position: relative;
-    background-color:rgba(56, 69, 79, 0.5);
+    background-color:rgba(56, 69, 79, 0.7);
     position: absolute;
     top: 50%;
     left: 50%;
@@ -91,11 +91,11 @@
     width: 100%;
     text-align: center;
     position: relative;
-    font-family: "Montserrat Alternates", sans-serif;
+    font-family: "Montserrat", sans-serif;
     text-transform: uppercase;
     font-size: 45px;
     line-height: 50px;
-    font-weight: 800;
+    font-weight: 900;
     color: #ffffff;
     &::before {
         content: "";
@@ -115,11 +115,11 @@
     width: 100%;
     text-align: center;
     position: relative;
-    font-family: "Montserrat Alternates", sans-serif;
+    font-family: "Montserrat", sans-serif;
     text-transform: uppercase;
     font-size: 25px;
     line-height: 50px;
-    font-weight: 700;
+    font-weight: 800;
     color: #ffffff;
     &::after {
         content: "";
@@ -152,7 +152,7 @@
     margin-bottom: 15px;
     position: relative;
     h1 {
-        font-family: "Montserrat Alternates", sans-serif;
+        font-family: "Montserrat", sans-serif;
         text-transform: uppercase;
         font-size: 30px;
         font-weight: 400;
@@ -176,14 +176,14 @@
     border: 1px solid #38454F;
     border-radius: 10px;
     background: #ffffff;
-    font-family: "Montserrat Alternates", sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-size: 16px;
     font-weight: 400;
     color: #38454F;
     transition: all 0.1s linear;
     &::placeholder {
         opacity: 0.8;
-        font-family: "Montserrat Alternates", sans-serif;
+        font-family: "Montserrat", sans-serif;
         font-size: 14px;
         font-weight: 400;
         font-style: italic;
@@ -234,7 +234,7 @@
     border: 1px solid #38454F;
     border-radius: 15px;
     background: #ffffff;
-    font-family: "Montserrat Alternates", sans-serif;
+    font-family: "Montserrat", sans-serif;
     text-transform: uppercase;
     font-size: 20px;
     font-weight: 400;
@@ -256,4 +256,4 @@
 
 /* FOOTER */
 
-@import "fragments/_footer.scss";
+@import "_footer.scss";

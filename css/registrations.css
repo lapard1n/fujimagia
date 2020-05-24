@@ -1,8 +1,41 @@
+@charset "UTF-8";
 /* RULES*/
-/* FONT TITLE */
-@import url("https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300;400;500;600;700;800&display=swap");
-/* FONT PARAGRAPH */
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap");
+/* FONTS */
+@font-face {
+	font-family: "Montserrat";
+	src: url("../fonts/Montserrat_Alternates/MontserratAlternates-Black.ttf") format("truetype");
+	font-weight: 900;
+}
+@font-face {
+	font-family: "Montserrat";
+	src: url("../fonts/Montserrat_Alternates/MontserratAlternates-ExtraBold.ttf") format("truetype");
+	font-weight: 800;
+}
+@font-face {
+	font-family: "Montserrat";
+	src: url("../fonts/Montserrat_Alternates/MontserratAlternates-Bold.ttf") format("truetype");
+	font-weight: 700;
+}
+@font-face {
+	font-family: "Montserrat";
+	src: url("../fonts/Montserrat_Alternates/MontserratAlternates-SemiBold.ttf") format("truetype");
+	font-weight: 600;
+}
+@font-face {
+	font-family: "Montserrat";
+	src: url("../fonts/Montserrat_Alternates/MontserratAlternates-Medium.ttf") format("truetype");
+	font-weight: 500;
+}
+@font-face {
+	font-family: "Montserrat";
+	src: url("../fonts/Montserrat_Alternates/MontserratAlternates-Regular.ttf") format("truetype");
+	font-weight: 400;
+}
+@font-face {
+	font-family: "Roboto";
+	src: url("../fonts/Roboto/Roboto-Light.ttf") format("truetype");
+	font-weight: 300;
+}
 .footer-case, .nav {
 	width: 100%;
 	max-width: 1200px;
@@ -73,7 +106,7 @@
 	color: #ff7675;
 }
 .nav__place h2 {
-	font-family: "Montserrat Alternates", sans-serif;
+	font-family: "Montserrat", sans-serif;
 	font-size: 20px;
 	font-weight: 600;
 	color: #38454F;
@@ -100,14 +133,17 @@
 	flex-flow: column;
 	justify-content: center;
 	padding-left: 10px;
-	font-family: "Montserrat Alternates", sans-serif;
-	font-size: 35px;
-	font-weight: 800;
+	font-family: "Montserrat", sans-serif;
 	line-height: 25px;
 }
 .nav__logo_text span:first-child {
 	font-size: 30px;
-	font-weight: 800;
+	font-weight: 900;
+}
+.nav__logo_text span:last-child {
+	padding-left: 15px;
+	font-size: 35px;
+	font-weight: 900;
 }
 
 /* HEADER MENU ACCOUNT */
@@ -116,6 +152,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: flex-end;
+	position: relative;
 }
 
 .nav__login {
@@ -181,7 +218,7 @@
 .nav__links {
 	position: relative;
 	text-decoration: none;
-	font-family: "Montserrat Alternates", sans-serif;
+	font-family: "Montserrat", sans-serif;
 	font-size: 16px;
 	font-weight: 400;
 	color: #38454F;
@@ -208,6 +245,16 @@
 }
 .hover-line:hover::after {
 	width: 100%;
+}
+
+.nav__account {
+	/* ОТКЛЮЧЕННЫЙ ЛИЧНЫЙ КАБИНЕТ */
+	display: none;
+	position: absolute;
+	z-index: 1;
+	right: 100px;
+	top: 50%;
+	transform: translate(0, -50%);
 }
 
 .header {
@@ -272,7 +319,7 @@
 	position: relative;
 }
 .login__title h1 {
-	font-family: "Montserrat Alternates", sans-serif;
+	font-family: "Montserrat", sans-serif;
 	text-transform: uppercase;
 	font-size: 30px;
 	font-weight: 400;
@@ -296,7 +343,7 @@
 	width: 42.5%;
 }
 .login__choice span {
-	font-family: "Montserrat Alternates", sans-serif;
+	font-family: "Montserrat", sans-serif;
 	text-transform: lowercase;
 	font-size: 20px;
 	line-height: 20px;
@@ -312,7 +359,7 @@
 	border: 1px solid #38454F;
 	border-radius: 10px;
 	background: #ffffff;
-	font-family: "Montserrat Alternates", sans-serif;
+	font-family: "Montserrat", sans-serif;
 	font-size: 16px;
 	font-weight: 400;
 	color: #38454F;
@@ -321,7 +368,7 @@
 .input::placeholder {
 	opacity: 0.8;
 	text-align: center;
-	font-family: "Montserrat Alternates", sans-serif;
+	font-family: "Montserrat", sans-serif;
 	font-size: 14px;
 	font-weight: 400;
 	font-style: italic;
@@ -340,7 +387,7 @@
 	border: 1px solid #38454F;
 	border-radius: 15px;
 	background: #ffffff;
-	font-family: "Montserrat Alternates", sans-serif;
+	font-family: "Montserrat", sans-serif;
 	text-transform: uppercase;
 	font-size: 20px;
 	font-weight: 400;
@@ -418,16 +465,16 @@
 .footer__title {
 	width: 70%;
 	flex-flow: column;
-	font-family: "Montserrat Alternates", sans-serif;
+	font-family: "Montserrat", sans-serif;
 	font-size: 55px;
-	font-weight: 800;
-	line-height: 40px;
+	font-weight: 900;
+	line-height: 42.5px;
 }
 
 .footer__title_sub {
 	padding-right: 50px;
 	font-size: 50px;
-	font-weight: 800;
+	font-weight: 900;
 }
 
 .footer__title_sup {
@@ -583,7 +630,7 @@
 }
 
 .footer__h1 {
-	font-family: "Montserrat Alternates", sans-serif;
+	font-family: "Montserrat", sans-serif;
 	text-transform: uppercase;
 	font-size: 20px;
 	font-weight: 600;
