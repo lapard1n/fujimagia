@@ -276,7 +276,7 @@
 }
 
 .slide {
-	width: inherit;
+	width: 100%;
 	height: inherit;
 	transition: all 0.2s linear;
 	background: no-repeat center url("../img/main/background.jpg");
@@ -595,12 +595,14 @@
 	transition: all 0.2s linear;
 	cursor: pointer;
 }
-
+.card__price_buy__disable{
+	display: none;
+}
 .card__quantity {
 	/* ОТКЛЮЧЕННАЯ ФУНКЦИЯ ПОКУПКИ */
 	width: 120px;
 	height: 37px;
-	display: none;
+	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	position: absolute;
@@ -610,6 +612,9 @@
 	transform: translateY(-50%);
 	color: #ffffff;
 	background: #ff7675;
+}
+.card__quantity__disable{
+	display: none;
 }
 .card__quantity span {
 	font-family: "Montserrat", sans-serif;

@@ -13,6 +13,9 @@ class Good {
         this.categoriesHtml = null;
         this.basketHtml = null;
 
+        this.buyButton = null;
+        this.cardQuantity = null;
+
         Good.all.push(this);
 
         if(Good.html) this.viewInit();
@@ -36,14 +39,24 @@ class Good {
     }
     basketViewInit(){}
 
-    plus(){}
-    minus() {}
+    plus(){
+        this.count += 1;
+    }
+    minus(){
+        if(this.count - 1 > 0)
+        {
+            this.cout -= 1;
+        }
+    }
 
     commonPlus(){}
     commonMinus(){}
 
     viewUpdate(){}
     basketViewUpdate(){}
+
+
+
     addToBasket(){
         basket.addGood(this);
     }
