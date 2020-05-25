@@ -42,7 +42,7 @@
 	padding: 0 15px;
 }
 
-.footer_play, .footer__app_title, .footer__app, .footer__sup, .footer__contacts, .footer__about-us_title, .footer__sub, .footer__about-us, .footer_item, .footer__soc, .footer__title, .footer, .login__form, .login-case, .main, .nav__cart > i {
+.footer_play, .footer__app_title, .footer_item, .footer__contacts, .footer, .login__form, .login-case, .main, .nav__cart > i {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -407,102 +407,57 @@
 /* FOOTER */
 .footer {
 	width: 100%;
-	height: 200px;
+	height: 100px;
 	background: #ffffff;
 	box-shadow: 0 -1.5px 3px rgba(0, 0, 0, 0.15);
 	border-top: 1px solid #cccccc;
 }
 
 .footer-case {
+	padding: 15px 0;
 	height: inherit;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 }
 
-/* FOOTER LOGOTYPE */
-.footer__logo {
-	width: 30%;
+/* FOOTER CONTACTS */
+.footer__contacts-case {
+	width: 32.5%;
 	height: 100%;
 	display: flex;
-	color: #38454F;
-	text-decoration: none;
-	transition: color 0.15s linear;
+	flex-flow: column wrap;
+	justify-content: flex-start;
+	align-items: flex-start;
 }
-.footer__logo:hover {
+
+.footer__contacts_title {
+	display: flex;
+}
+.footer__contacts_title .fas {
+	text-shadow: 1.5px 1.5px 3px rgba(0, 0, 0, 0.25);
+	margin-right: 5px;
+	font-size: 16px;
 	color: #ff7675;
 }
 
-.footer__img {
-	width: 30%;
-	min-width: 100px;
+.footer__contacts {
+	width: auto;
 	height: 100%;
-	position: relative;
-}
-.footer__img img {
-	width: 65px;
-	position: absolute;
-	z-index: 1;
-	top: 50%;
-	left: 50%;
-}
-
-.footer__img_back {
-	transform: translate3d(-75%, -75%, 0);
-}
-
-.footer__img_middle {
-	transform: translate3d(-50%, -50%, 0);
-}
-
-.footer__img_front {
-	transform: translate3d(-25%, -25%, 0);
-}
-
-.footer__title {
-	width: 70%;
 	flex-flow: column;
-	font-family: "Montserrat", sans-serif;
-	font-size: 55px;
-	font-weight: 900;
-	line-height: 42.5px;
+}
+.footer__contacts a {
+	margin: 5px 0;
 }
 
-.footer__title_sub {
-	padding-right: 50px;
-	font-size: 50px;
-	font-weight: 900;
-}
-
-.footer__title_sup {
-	padding-left: 50px;
-}
-
-.footer__title_text {
-	margin-top: 15px;
-	display: flex;
-	flex-flow: column;
-	justify-content: center;
-}
-.footer__title_text i {
-	line-height: 16px;
-	font-family: "Roboto", sans-serif;
-	font-size: 16px;
-	font-weight: 300;
-	color: #999999;
-}
-.footer__title_text i:first-child {
-	padding-right: 50px;
-}
-.footer__title_text i:last-child {
-	padding-left: 50px;
-}
-
-/* FOOTER SOCIAL NETWORK SECTION */
+/* FOOTER SOCNET */
 .footer__soc {
 	width: 32.5%;
 	height: 100%;
-	flex-flow: column;
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+	align-items: center;
 }
 
 .footer__net {
@@ -550,54 +505,14 @@
 	background: #FF0000;
 }
 
-/* FOOTER ABOUT US */
-.footer__about-us {
+/* FOOTER APPS */
+.footer__app {
 	width: 32.5%;
 	height: 100%;
-	flex-flow: column;
-}
-
-.footer__sub {
-	width: 100%;
-	height: 50%;
-	justify-content: space-evenly;
-}
-
-.footer__about-us_title {
-	width: auto;
-	height: 100%;
-}
-.footer__about-us_title .fas {
-	text-shadow: 1.5px 1.5px 3px rgba(0, 0, 0, 0.25);
-	margin-right: 5px;
-	font-size: 20px;
-	color: #ff7675;
-}
-
-.footer__contacts {
-	width: auto;
-	height: 100%;
-	flex-flow: column;
-}
-.footer__contacts a {
-	margin: 5px 0;
-}
-
-.hr {
-	width: 100%;
-	height: 3px;
-	display: block;
-	background: #ff7675;
-}
-
-.footer__sup {
-	width: 100%;
-	height: 50%;
-}
-
-.footer__app {
-	width: 100%;
-	justify-content: space-evenly;
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: flex-start;
+	align-items: flex-end;
 }
 
 .footer__app_title {
@@ -629,7 +544,7 @@
 .footer__h1 {
 	font-family: "Montserrat", sans-serif;
 	text-transform: uppercase;
-	font-size: 20px;
+	font-size: 16px;
 	font-weight: 600;
 	color: #38454F;
 	letter-spacing: 3px;
