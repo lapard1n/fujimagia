@@ -11,15 +11,17 @@
         </div>
         <div class="card__price">
             <span class="card__price_sum">{{% price %}} Р</span>
-            <button class="card__price_buy" data-onclick="addToBasket" id="card__buy-button">Купить</button>
-            <div class="card__quantity card__quantity__disable" id="card__quantity-div">
-                <button>
-                    <i class="fas fa-minus"></i>
-                </button>
-                <span>{{% count %}}</span>
-                <button>
-                    <i class="fas fa-plus"></i>
-                </button>
+            <div class="card__price_buy">
+                <button class="card__price_buy" data-onclick="addToBasket" id="card__buy-button">Купить</button>
+                <div class="card__quantity card__quantity__disable" id="card__quantity-div">
+                    <button>
+                        <i class="fas fa-minus"></i>
+                    </button>
+                    <span>{{% count %}}</span>
+                    <button>
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
             </div>
         </div>
     </div>
