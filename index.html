@@ -595,50 +595,5 @@
     <script src="/scripts/Basket.js"></script>
     <script src="/scripts/Good.js"></script>
     <script src="/scripts/app.js"></script>
-
-    <script>
-        (window.onload = function () {
-            const categoryClassic = document.getElementById('category__classic');
-            const categoryAll = document.getElementById('category__all');
-            const categoryBaked = document.getElementById('category__baked');
-            const categoryMini = document.getElementById('category__mini')
-
-            const getCards = () => { return document.querySelectorAll(".card"); }
-
-            const viewUpdate = (domObj) => {
-                domObj.forEach(el =>{
-                    el.classList.remove("card__disable")
-                });
-            }
-            const disableCardsWithot = (c_type) => {
-                const allCards = getCards();
-                viewUpdate(allCards);
-                allCards.forEach((el, i) =>{
-                    if(!el.classList.contains(`card-category__${c_type}`))
-                    {
-                        el.classList.add('card__disable');
-                    }
-                });
-            }
-
-            categoryAll.addEventListener('click', (e) => {
-                const allCards = getCards();
-                viewUpdate(allCards);
-            });
-
-            categoryClassic.addEventListener('click', (e => {
-                disableCardsWithot(`classic`);
-            }));
-
-            categoryBaked.addEventListener('click', (e =>{
-                disableCardsWithot('baked');
-            }));
-
-            categoryMini.addEventListener('click', (e => {
-                disableCardsWithot('mini')
-            }));
-
-        });
-    </script>
 </body>
 </html>

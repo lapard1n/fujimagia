@@ -8,4 +8,5 @@ async function app() {
         shop.loadGoods()
     ]);
     shop.showGoods();
+    shop.categoriesControl();
 }
