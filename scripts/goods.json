@@ -1,0 +1,45 @@
+[{
+    "id": 1,
+    "src": "img/main/cards/01.webp",
+    "name": "Maki",
+    "price": 600,
+    "category": "baken"
+},
+{
+    "id": 2,
+    "src": "img/main/cards/02.webp",
+    "name": "Sunrice",
+    "price": 500,
+    "category": "baken"
+},
+{
+    "id": 3,
+    "src": "img/main/cards/03.webp",
+    "name": "Bad motherFucker",
+    "price": 540
+},
+{
+    "id": 4,
+    "src": "img/main/cards/04.webp",
+    "name": "CockSucker",
+    "price": 550
+},
+{
+    "id": 4,
+    "src": "img/main/cards/05.webp",
+    "name": "GodBless",
+    "price": 400
+},
+{
+    "id": 4,
+    "src": "img/main/cards/06.webp",
+    "name": "Hentai",
+    "price": 450
+},
+{
+    "id": 4,
+    "src": "img/main/cards/07.webp",
+    "name": "Ubuntu was die",
+    "price": 500
+}
+]

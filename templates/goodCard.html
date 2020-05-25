@@ -1,0 +1,26 @@
+<div class="card card-category__{{% category %}}">
+    <div class="card__img-case">
+        <img class="card__img" src="{{% imgSrc %}}">
+    </div>
+    <div class="card__text">
+        <div class="card-logo-case">
+            <img class="card__logo" src="img/main/links_logo.svg">
+        </div>
+        <div class="card__title">
+            <h1>{{% name %}}</h1>
+        </div>
+        <div class="card__price">
+            <span class="card__price_sum">{{% price %}} Р</span>
+            <button class="card__price_buy" data-onclick="addToBasket">Купить</button>
+            <div class="card__quantity">
+                <button>
+                    <i class="fas fa-minus"></i>
+                </button>
+                <span>{{% count %}}</span>
+                <button>
+                    <i class="fas fa-plus"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
