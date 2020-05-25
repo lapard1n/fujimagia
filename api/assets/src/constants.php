@@ -1,34 +1,32 @@
 <?php
 /*Security*/
-define('SECRETE_KEY', 'KLjAsIamsdPksn');
+const SECRETE_KEY = "KLjAsIamsdPksn";
 
 /*Data Type*/
-define('BOOLEAN', 	'1');
-define('INTEGER', 	'2');
-define('STRING', 	'3');
+const BOOLEAN = 1;
+const INTEGER = 2;
+const STRING = 3;
 
 /*Error Codes*/
-define('REQUEST_METHOD_NOT_VALID',		        100);
-define('REQUEST_CONTENTTYPE_NOT_VALID',	        101);
-define('REQUEST_NOT_VALID', 			        102);
-define('VALIDATE_PARAMETER_REQUIRED', 			103);
-define('VALIDATE_PARAMETER_DATATYPE', 			104);
-define('API_NAME_REQUIRED', 					105);
-define('API_PARAM_REQUIRED', 					106);
-define('API_DOST_NOT_EXIST', 					107);
-define('INVALID_USER_PASS', 					108);
-define('USER_NOT_ACTIVE', 						109);
-
-define('SUCCESS_RESPONSE', 						200);
+const REQUEST_METHOD_NOT_VALID = 100;
+const REQUEST_CONTENTTYPE_NOT_VALID = 101;
+const REQUEST_NOT_VALID = 102;
+const VALIDATE_PARAMETER_REQUIRED = 103;
+const VALIDATE_PARAMETER_DATATYPE = 104;
+const API_NAME_REQUIRED = 105;
+const API_PARAM_REQUIRED = 106;
+const API_DOST_NOT_EXIST = 107;
+const INVALID_USER_PASS = 108;
+const USER_NOT_ACTIVE = 109;
+const SUCCESS_RESPONSE = 200;
 
 /*Server Errors*/
-
-define('JWT_PROCESSING_ERROR',					300);
-define('ATHORIZATION_HEADER_NOT_FOUND',			301);
-define('ACCESS_TOKEN_ERRORS',					302);
+const JWT_PROCESSING_ERROR = 300;
+const ATHORIZATION_HEADER_NOT_FOUND = 301;
+const ACCESS_TOKEN_ERRORS = 302;
 
 /*Database config*/
-define('DATABASE_HOST', 'localhost');
-define('DATABASE_USER', 'root');
-define('DATABASE_NAME', 'jwtapi');
-define('DATABASE_PASSWORD', '');
+const DATABASE_HOST = 'localhost';
+const DATABASE_USER = 'root';
+const DATABASE_NAME = 'jwtapi';
+const DATABASE_PASSWORD = '';
