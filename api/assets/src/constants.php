@@ -1,0 +1,32 @@
+<?php
+/*Security*/
+const SECRETE_KEY = "KLjAsIamsdPksn";
+
+/*Data Type*/
+const BOOLEAN = 1;
+const INTEGER = 2;
+const STRING = 3;
+
+/*Error Codes*/
+const REQUEST_METHOD_NOT_VALID = 100;
+const REQUEST_CONTENTTYPE_NOT_VALID = 101;
+const REQUEST_NOT_VALID = 102;
+const VALIDATE_PARAMETER_REQUIRED = 103;
+const VALIDATE_PARAMETER_DATATYPE = 104;
+const API_NAME_REQUIRED = 105;
+const API_PARAM_REQUIRED = 106;
+const API_DOST_NOT_EXIST = 107;
+const INVALID_USER_PASS = 108;
+const USER_NOT_ACTIVE = 109;
+const SUCCESS_RESPONSE = 200;
+
+/*Server Errors*/
+const JWT_PROCESSING_ERROR = 300;
+const ATHORIZATION_HEADER_NOT_FOUND = 301;
+const ACCESS_TOKEN_ERRORS = 302;
+
+/*Database config*/
+const DATABASE_HOST = 'localhost';
+const DATABASE_USER = 'root';
+const DATABASE_NAME = 'jwtapi';
+const DATABASE_PASSWORD = '';
