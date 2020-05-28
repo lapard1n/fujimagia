@@ -65,6 +65,7 @@
     transition: color 0.15s linear;
     &:hover {
         color: #ff7675;
+        text-shadow: 1.5px 1.5px 3px rgba(0, 0, 0, 0.25);
     }
     img {
         width: 65px;
