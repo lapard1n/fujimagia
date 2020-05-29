@@ -74,4 +74,14 @@ class Shop{
             disableCardsWithot('mini')
         }));
     }
+
+    cartButtonControl(){
+        const cartButton = document.querySelector('#cartButton');
+        const cartDiv = document.querySelector('#cartWindow')
+
+        cartButton.addEventListener('click', () => {
+            if(cartDiv.classList.contains('cart__disable')) cartDiv.classList.remove('cart__disable');
+            else cartDiv.classList.add('cart__disable');
+        });
+    }
 }

@@ -260,7 +260,7 @@
 	height: auto;
 	min-height: 400px;
 	padding: 0 15px 100px;
-	display: none;
+	display: flex;
 	/* display: flex; */
 	flex-flow: column wrap;
 	justify-content: flex-start;
@@ -273,6 +273,9 @@
 	background: #ffffff;
 	border-radius: 15px;
 	border-top-right-radius: 0;
+}
+.cart__disable {
+	display: none;
 }
 
 .cart__row {
@@ -334,6 +337,9 @@
 	left: 0;
 	z-index: 3;
 	background: #ffffff;
+}
+order__clean__disable{
+	display: none;
 }
 .order__clean .order__background {
 	width: 100%;

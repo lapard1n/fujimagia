@@ -116,7 +116,7 @@ class Api extends Rest
         );
     }
 
-    /* Customers Methods */
+    /* Customer Methods */
     public function addCustomer()
     {
 

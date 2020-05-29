@@ -1,0 +1,22 @@
+<div class="order-row" id="cart-item">
+    <div class="order__product">
+        <div class="order__img">
+            <img src="{{% imgSrc %}}">
+        </div>
+        <div class="order__info">
+            <h1>{{% name %}}</h1>
+            <h1>{{% gram %}} г</h1>
+        </div>
+    </div>
+    <div class="order__quantity" id="card__quantity-div">
+        <button data-onclick="commonMinus">
+            <i class="fas fa-minus"></i>
+        </button>
+        <span id="card__quantity-current">{{% count %}}</span>
+        <button data-onclick="commonPlus">
+            <i class="fas fa-plus"></i>
+        </button>
+    </div>
+    <div class="order__sum" >{{% price %}} Р</div>
+    <button class="order__сancel" data-onclick="removeFromBasket"><i class="fas fa-times"></i></button>
+</div>

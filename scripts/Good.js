@@ -37,46 +37,93 @@ class Good {
             element.addEventListener('click', () => this[handlerName]());
         }
     }
-    basketViewInit(){}
+    basketViewInit(){
+        let str = Good.basketHtml.slice();
+        for(const substr of str.match(/{{% \w+ %}}/g)){
+            str = str.replace(substr, this[substr.substr(4, substr.length - 8)])
+        }
+        const temp = document.createElement('div');
+        temp.innerHTML = str;
 
-    plus(){
-        this.count += 1;
-    }
-    minus(){
-        if(this.count - 1 > 0)
-        {
-            this.cout -= 1;
+        this.basketHtml = temp.firstChild;
+        for (const element of this.basketHtml.querySelectorAll('[data-onclick]')){
+            const handlerName = element.dataset.onclick;
+            element.addEventListener('click', () => this[handlerName]());
         }
     }
 
-    commonPlus(){}
-    commonMinus(){}
+    plus(){
+        this.count += 1;
+        this.viewUpdate();
+        this.addToBasket();
+    }
+    minus(){
+        // if(this.count != 0)
+        {
+            this.count -= 1;
+            this.viewUpdate();
+            this.removeFromBasket();
+            this.commonUpdate();
+            // this.basketViewUpdate();
+        }
+    }
 
-    viewUpdate(){}
-    basketViewUpdate(){}
+    commonPlus(){
+        this.commonCount += 1;
+        this.commonPrice = this.commonCount * this.price;
+        this.basketViewUpdate();
 
+        this.commonUpdate();
+        // basket.incGood();
+    }
+    commonMinus(){
 
+        if(this.commonCount - 1 > 0){
+            this.commonCount -= 1;
+            this.commonPrice = this.commonCount * this.price;
+            this.basketViewUpdate();
+
+            // this.commonUpdate();
+            // basket.decGood();
+        }else
+        {
+            this.removeFromBasket();
+        }
+    }
+
+    viewUpdate(){
+        this.html.querySelector('.card #card__quantity-current').textContent = this.count;
+    }
+    basketViewUpdate(){
+        this.basketHtml.querySelector('.order-row #card__quantity-current').textContent = this.commonCount;
+    }
 
     addToBasket(){
         basket.addGood(this);
     }
+    removeFromBasket(){
+        basket.removeGood(this);
+    }
 
-    commonUpdate(){}
-
-
+    commonUpdate(){
+        basket.updateCommonPrice();
+    }
 
     static async init(){
         const goodCard = await fetch('templates/goodCard.html');
         Good.html = await goodCard.text();
 
+        const goodBasketCard = await fetch('templates/goodCart.html');
+        Good.basketHtml = await goodBasketCard.text();
+
         for (const good of Good.all)
         {
             good.viewInit();
+            good.basketViewInit();
         }
     }
 }
 
 Good.html = '';
-Good.categoriesHtml = '';
 Good.basketHtml = '';
 Good.all = [];
