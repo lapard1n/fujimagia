@@ -713,6 +713,8 @@
 	top: 0;
 	right: 0;
 	transform: translate(-25%, 25%);
+	-webkit-user-select: none;
+	user-select: none;
 }
 
 .two-shusha {
@@ -721,6 +723,8 @@
 	bottom: 0;
 	left: 0;
 	transform: translate(60%, -10%);
+	-webkit-user-select: none;
+	user-select: none;
 }
 
 .three-sushka {
@@ -730,6 +734,8 @@
 	z-index: 2;
 	transform: translateY(-20%);
 	left: 25px;
+	-webkit-user-select: none;
+	user-select: none;
 }
 
 .four-sushich {
@@ -739,6 +745,8 @@
 	z-index: 2;
 	transform: translateY(20%);
 	right: 25px;
+	-webkit-user-select: none;
+	user-select: none;
 }
 
 .sushi-center {
@@ -747,6 +755,8 @@
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
+	-webkit-user-select: none;
+	user-select: none;
 }
 
 /* CREATING SECTIONS FOR CONTENT PLACEMENT */
