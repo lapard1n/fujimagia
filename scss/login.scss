@@ -8,6 +8,7 @@
 
 .header {
     position: relative;
+    z-index: 3;
 }
 
 /* MAIN */
@@ -257,3 +258,8 @@
 /* FOOTER */
 
 @import "_footer.scss";
+
+.footer {
+    position: relative;
+    z-index: 3;
+}

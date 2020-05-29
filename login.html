@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Магия Фудзи</title>
+    <title>Вход</title>
     <link rel="stylesheet" type="text/css" href="css/login.css">
     <link rel="stylesheet" href="fonts/Fontawesome/css/all.css">
     <link rel="shortcut icon" href="../img/logo_sushi.svg" type="image/x-icon">
@@ -45,18 +45,18 @@
                         Регистрация
                     </a>
                 </div>
-                <a class="nav__account nav__links hover-line" href="account.html">
+                <a class="nav__account nav__account_disable  nav__links hover-line" href="account.html">
                     <i class="fas fa-user"></i>
                     Ваш кабинет
                 </a>
-                <a class="nav__cart" href="cart.html">
+                <a class="nav__cart" href="#">
                     <i class="fas fa-shopping-basket"></i>
                     <span class="nav__sum">0</span>
                 </a>
             </div>
         </nav>
         <!-- CART FORM -->
-        <section class="cart">
+        <section class="cart cart_disable">
             <div class="cart__row">
                 <div class="cart__product">Ваш заказ</div>
                 <div class="cart__quantity">Кол-во</div>
@@ -64,7 +64,7 @@
                 <div class="cart__cancel"><div class="dat"></div></div>
             </div>
             <div class="order">
-                <div class="order__clean">
+                <div class="order__clean order__clean_disable">
                     <div class="order__background"></div>
                     <div class="order__title">
                         <h1 class="order__title_sub">Пока что</h1>
@@ -150,7 +150,7 @@
                     <h1>Пожаловать</h1>
                 </div>
                 <form action="../index.html" class="login__form" method="POST" >
-                    <input class="input" type="text" name="username" placeholder="Ваше имя" autofocus>
+                    <input class="input" type="email" name="username" placeholder="Ваша почта" autofocus>
                     <input class="input" type="password" name="password" placeholder="Ваш пароль" readonly onfocus="this.removeAttribute('readonly')">
                     <div class="login__help">
                         <a class="login__help_link hover-line" href="#">Забыли пароль?</a>

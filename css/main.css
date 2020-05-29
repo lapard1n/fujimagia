@@ -122,6 +122,7 @@
 }
 .nav__logo:hover {
 	color: #ff7675;
+	text-shadow: 1.5px 1.5px 3px rgba(0, 0, 0, 0.25);
 }
 .nav__logo img {
 	width: 65px;
@@ -178,6 +179,9 @@
 	color: #FFFFFF;
 	background: rgba(0, 0, 0, 0);
 }
+.nav__cart:active i {
+	font-size: 35px;
+}
 
 .nav__cart > i {
 	width: 100%;
@@ -186,7 +190,11 @@
 	font-size: 45px;
 	color: #ff7675;
 	transition: all 0.2s linear;
+	transition: font-size 25ms;
 	text-shadow: 1.5px 1.5px 3px rgba(0, 0, 0, 0.25);
+}
+.nav__cart > i:active {
+	font-size: 40px;
 }
 
 .nav__sum {
@@ -210,42 +218,7 @@
 	text-shadow: 1.5px 1.5px 3px rgba(0, 0, 0, 0.25);
 }
 
-/* HEADER NAV LINKS*/
-.nav__links {
-	position: relative;
-	text-decoration: none;
-	font-family: "Montserrat", sans-serif;
-	font-size: 16px;
-	font-weight: 400;
-	color: #38454F;
-}
-.nav__links .fas {
-	margin-right: 2px;
-}
-
-.hover-line::after {
-	content: "";
-	width: 0;
-	height: 1px;
-	display: block;
-	position: absolute;
-	z-index: 1;
-	bottom: -3px;
-	left: 50%;
-	transform: translateX(-50%);
-	transition: all 0.2s ease-in-out;
-	background: #ff7675;
-}
-.hover-line:hover {
-	color: #ff7675;
-}
-.hover-line:hover::after {
-	width: 100%;
-}
-
 .nav__account {
-	/* ОТКЛЮЧЕННЫЙ ЛИЧНЫЙ КАБИНЕТ */
-	display: none;
 	position: absolute;
 	z-index: 1;
 	right: 100px;
@@ -253,13 +226,18 @@
 	transform: translate(0, -50%);
 }
 
+.nav__account_disable {
+	/* ОТКЛЮЧЕНИЕ ЛИЧНОГО КАБИНЕТА */
+	display: none;
+}
+
 /* CART FORM */
 .cart {
-	/* ОТКЛЮЧЕННАЯ ФУНКЦИЯ КОРЗИНЫ */
 	width: 500px;
 	height: auto;
 	min-height: 400px;
 	padding: 0 15px 100px;
+	display: flex;
 	display: flex;
 	/* display: flex; */
 	flex-flow: column wrap;
@@ -274,7 +252,9 @@
 	border-radius: 15px;
 	border-top-right-radius: 0;
 }
-.cart__disable {
+
+.cart_disable {
+	/* ОТКЛЮЧЕНИЕ ФУНКЦИИ КОРЗИНЫ */
 	display: none;
 }
 
@@ -328,8 +308,6 @@
 }
 
 .order__clean {
-	/* ОТКЛЮЧЕННАЯ ФУНКЦИЯ ПУСТОЙ КОРЗИНЫ */
-	display: none;
 	width: 100%;
 	height: 100%;
 	position: absolute;
@@ -338,13 +316,15 @@
 	z-index: 3;
 	background: #ffffff;
 }
-order__clean__disable{
-	display: none;
-}
 .order__clean .order__background {
 	width: 100%;
 	height: 100%;
 	background: no-repeat center url("../img/main/slides/slide1.jpeg");
+}
+
+.order__clean_disable {
+	/* ОТКЛЮЧЕНИЕ ФУНКЦИИ ПУСТОЙ КОРЗИНЫ */
+	display: none;
 }
 
 .order__title {
@@ -622,6 +602,39 @@ order__clean__disable{
 	box-shadow: inset 0px 0px 5px 1.5px rgba(0, 0, 0, 0.2);
 }
 
+/* HEADER NAV LINKS*/
+.nav__links {
+	position: relative;
+	text-decoration: none;
+	font-family: "Montserrat", sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	color: #38454F;
+}
+.nav__links .fas {
+	margin-right: 2px;
+}
+
+.hover-line::after {
+	content: "";
+	width: 0;
+	height: 1px;
+	display: block;
+	position: absolute;
+	z-index: 1;
+	bottom: -3px;
+	left: 50%;
+	transform: translateX(-50%);
+	transition: all 0.2s ease-in-out;
+	background: #ff7675;
+}
+.hover-line:hover {
+	color: #ff7675;
+}
+.hover-line:hover::after {
+	width: 100%;
+}
+
 /* MAIN */
 .main {
 	width: 100%;
@@ -841,9 +854,6 @@ order__clean__disable{
 	box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 	border-radius: 2%;
 }
-.card__disable {
-	display: none;
-}
 .card:hover .card__img-case .card__img {
 	transform: scale(1.05);
 }
@@ -866,6 +876,9 @@ order__clean__disable{
 .card:hover .card__text .card__price .card__quantity {
 	color: #ff7675;
 	background: #ffffff;
+}
+.card:hover .card__text .card__gramm h2 {
+	color: #ffffff;
 }
 
 .card__img-case {
@@ -906,7 +919,7 @@ order__clean__disable{
 
 .card__title {
 	width: 100%;
-	height: 40%;
+	height: 30%;
 }
 
 .card__title h1 {
@@ -932,7 +945,7 @@ order__clean__disable{
 
 .card__price {
 	width: 100%;
-	height: 60%;
+	height: 50%;
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
@@ -968,10 +981,9 @@ order__clean__disable{
 	display: none;
 }
 .card__quantity {
-	/* ОТКЛЮЧЕННАЯ ФУНКЦИЯ ПОКУПКИ */
 	width: 120px;
 	height: 37px;
-	display: none;
+	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	position: absolute;
@@ -980,9 +992,7 @@ order__clean__disable{
 	right: 0;
 	color: #ffffff;
 	background: #ff7675;
-}
-.card__quantity__disable{
-	display: none;
+	transition: all 0.2s linear;
 }
 .card__quantity span {
 	font-family: "Montserrat", sans-serif;
@@ -996,6 +1006,25 @@ order__clean__disable{
 	font-size: 20px;
 	color: inherit;
 	cursor: pointer;
+}
+
+.card__quantity_disable {
+	/* ОТКЛЮЧЕНИЕ ФУНКЦИИ ПОКУПКИ */
+	display: none;
+}
+
+.card__gramm {
+	width: 100%;
+	height: 20%;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+}
+.card__gramm h2 {
+	font-family: "Montserrat", sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+	color: #38454F;
 }
 
 /* FOOTER */
@@ -1052,8 +1081,6 @@ order__clean__disable{
 .footer__soc {
 	width: 100%;
 	height: 100%;
-	width: 25%;
-	min-width: 200px;
 	display: flex;
 	flex-flow: column nowrap;
 	justify-content: center;
