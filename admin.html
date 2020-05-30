@@ -2,8 +2,8 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Ваш Кабинет</title>
-    <link rel="stylesheet" type="text/css" href="css/account.css">
+    <title>Панель Администратора</title>
+    <link rel="stylesheet" type="text/css" href="css/admin.css">
     <link rel="stylesheet" href="fonts/Fontawesome/css/all.css">
     <link rel="shortcut icon" href="img/logo_sushi.svg" type="image/x-icon">
 </head>
@@ -135,64 +135,78 @@
         </section>
     </header>
     <main class="main">
-        <div class="account">
-            <div class="account__title">
-                <i class="fas fa-pencil-alt"></i>
-                <h1>Личный Кабинет</h1>
+        <div class="admin">
+            <div class="admin__title">
+                <i class="fas fa-users-cog"></i>
+                <h1>Панель администратора</h1>
             </div>
-            <!-- ACCOUNT SECTIONS -->
-            <section class="account-links">
-                <div class="account-links__btns">
+            <!-- ADMIN SECTIONS -->
+            <section class="admin-links">
+                <div class="admin-links__btns">
                     <div class="btn-case">
-                        <div class="account-links__img">
+                        <div class="admin-links__img">
                             <img src="img/logo_sushi.svg">
                         </div>
                         <button class="btn hover-line">Каталог товаров</button>
                     </div>
                     <div class="hr"></div>
                     <div class="btn-case">
-                    <div class="account-links__img">
+                    <div class="admin-links__img">
                         <img src="img/main/links_logo.svg">
                     </div>
                         <button class="btn hover-line">История заказов</button>
                     </div>
                 </div>
             </section>
-            <!-- ACCOUNT SECTIONS-CASE -->
-            <div class="account-case">
-                <!-- ACCOUNT DATA SECTION -->
-                <section class="setting setting_disable">
-                    <form class="setting__form left" action="">
-                        <label class="setting__label" for="tel">
-                            <h1>Ваше имя:</h1><span class="user-data" id="">Пупа</span>
-                            <input class="setting__input" type="tel" id="tel" placeholder="Введите новое имя">
-                        </label>
-                        <label class="setting__label" for="tel">
-                            <h1>Ваш номер:</h1><span class="user-data" id="">+7 (950) 123-45-67</span>
-                            <input class="setting__input" type="tel" id="tel" placeholder="Введите новый номер">
-                        </label>
-                        <label class="setting__label" for="mail">
-                            <h1>Ваш почта:</h1><span class="user-data" id="">pupa_lupa@za.ru</span>
-                            <input class="setting__input" type="email" id="mail" placeholder="Введите новую почту">
-                        </label>
-                    </form>
-                    <form class="setting__form right" action="">
-                        <label class="setting__label" for="old-pass">
-                            <h1>Старый пароль:</h1>
-                            <input class="setting__input" type="text" id="old-pass" placeholder="Введите старый пароль">
-                        </label>
-                        <label class="setting__label" for="new-pass">
-                            <h1>Новый пароль:</h1>
-                            <input class="setting__input" type="text" id="new-pass" placeholder="Введите новый пароль">
-                        </label>
-                        <input class="setting__button" type="button" value="Принять">
-                    </form>
+            <!-- ADMIN SECTIONS-CASE -->
+            <div class="admin-case">
+                <!-- PROGUCT CATALOG SECTION -->
+                <section class="catalog catalog_disable">
+                    <div class="cart__row new">
+                        <div class="cart__product">Товар</div>
+                        <div class="cart__quantity">Категория</div>
+                        <div class="cart__sum">Цена</div>
+                        <div class="cart__cancel"><div class="dat"></div></div>
+                    </div>
+                    <div class="order new">
+                        <div class="order-row new">
+                            <div class="order__product new">
+                                <div class="order__img new">
+                                    <img src="img/main/cards/01.webp">
+                                </div>
+                                <div class="order__info new">
+                                    <h1>Это суши - суши</h1>
+                                    <h1>200 г</h1>
+                                </div>
+                            </div>
+                            <div class="order__quantity">
+                                <span>Мини роллы</span>
+                            </div>
+                            <div class="order__sum">99 Р</div>
+                            <button class="order__сancel"><i class="fas fa-times"></i></button>
+                            <button class="ghost-order-button"><i class="fas fa-arrow-circle-down"></i></button>
+                            <div class="ghost-order-row">
+                                <form action="">
+                                    <input class="admin-input" type="file" value="изображение">
+                                    <input class="admin-input" type="text" placeholder="наименование">
+                                    <input class="admin-input" type="text" placeholder="граммовка">
+                                    <select class="admin-input">
+                                        <option>Классические роллы</option>
+                                        <option>Запеченые роллы</option>
+                                        <option>Мини роллы</option>
+                                    </select>
+                                    <input class="admin-input" type="text" placeholder="цена">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                 </section>
                 <!-- ORDER HISTORY SECTION -->
                 <section class="history history_disable">
                     <div class="cart__sec">
                         <div class="cart__product-sec">Имя товара</div>
                         <div class="cart__quantity-sec">Дата заказа</div>
+                        <div class="cart__client-sec">Клиент</div>
                         <div class="cart__sum-sec">Цена</div>
                     </div>
                     <div class="order-sec">
@@ -204,6 +218,7 @@
                             <div class="order__quantity-sec">
                                 <span>28.08.2019</span>
                             </div>
+                            <div class="order__client-sec">JoJo</div>
                             <div class="order__sum-sec">99 Р</div>
                         </div>
                         <div class="order-row-sec">
@@ -214,6 +229,7 @@
                             <div class="order__quantity-sec">
                                 <span>28.08.2019</span>
                             </div>
+                            <div class="order__client-sec">JoJo</div>
                             <div class="order__sum-sec">99 Р</div>
                         </div>
                         <div class="order-row-sec">
@@ -224,6 +240,7 @@
                             <div class="order__quantity-sec">
                                 <span>28.08.2019</span>
                             </div>
+                            <div class="order__client-sec">JoJo</div>
                             <div class="order__sum-sec">99 Р</div>
                         </div>
                         <div class="order-row-sec">
@@ -234,6 +251,7 @@
                             <div class="order__quantity-sec">
                                 <span>28.08.2019</span>
                             </div>
+                            <div class="order__client-sec">JoJo</div>
                             <div class="order__sum-sec">99 Р</div>
                         </div>
                         <div class="order-row-sec">
@@ -244,6 +262,7 @@
                             <div class="order__quantity-sec">
                                 <span>28.08.2019</span>
                             </div>
+                            <div class="order__client-sec">JoJo</div>
                             <div class="order__sum-sec">99 Р</div>
                         </div>
                     </div>

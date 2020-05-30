@@ -35,13 +35,13 @@
 	src: url("../fonts/Roboto/Roboto-Light.ttf") format("truetype");
 	font-weight: 300;
 }
-.footer-case, .card-case, .links__btns, .nav {
+.footer-case, .admin-links__btns, .nav {
 	width: 100%;
 	max-width: 1200px;
 	padding: 0 15px;
 }
 
-.footer_download, .footer_item, .footer, .card__title, .card-logo-case, .slider__arrow, .cart__price_btn, .order__сancel .fas, .order__title, .cart__row, .nav__cart > i {
+.footer_download, .footer_item, .footer, .order__sum-sec, .order__client-sec, .order__quantity-sec, .cart__sec, .ghost-order-row form, .ghost-order-row, .ghost-order-button .fas, .admin-links__btns, .main, .cart__price_btn, .order__сancel .fas, .order__title, .cart__row, .nav__cart > i {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -238,8 +238,6 @@
 	min-height: 400px;
 	padding: 0 15px 100px;
 	display: flex;
-	display: flex;
-	/* display: flex; */
 	flex-flow: column wrap;
 	justify-content: flex-start;
 	align-items: center;
@@ -254,7 +252,7 @@
 	border-top-right-radius: 0;
 }
 
-.cart__disable {
+.cart_disable {
 	/* ОТКЛЮЧЕНИЕ ФУНКЦИИ КОРЗИНЫ */
 	display: none;
 }
@@ -316,9 +314,6 @@
 	left: 0;
 	z-index: 3;
 	background: #ffffff;
-}
-.order__clean__disable{
-	display: none;
 }
 .order__clean .order__background {
 	width: 100%;
@@ -639,182 +634,94 @@
 	width: 100%;
 }
 
+.header {
+	position: relative;
+}
+
 /* MAIN */
 .main {
 	width: 100%;
-	padding-top: 100px;
+	height: 90vh;
 	background: #eeeeee;
-}
-
-/* MAIN DISCOUNT SLIDER */
-.slider {
-	width: 100%;
-	height: 50vh;
-	position: relative;
 	overflow: hidden;
 }
-.slider:hover .slide {
-	transform: scale(1.02);
-}
 
-.slide {
-	width: inherit;
-	height: inherit;
-	transition: all 0.2s linear;
-	background: no-repeat center url("../img/main/background.jpg");
-}
-
-.slider__arrow {
-	width: 50px;
-	height: 50px;
-	position: absolute;
-	z-index: 1;
-	border-radius: 50%;
-	background-color: rgba(56, 69, 79, 0.5);
-	transition: all 0.1s linear;
-	cursor: pointer;
-}
-.slider__arrow:hover {
-	background-color: rgba(255, 255, 255, 0.9);
-}
-.slider__arrow .fas {
-	font-size: 50px;
-	color: #ffffff;
-	transition: all 0.1s linear;
-}
-.slider__arrow:hover .fas {
-	color: #ff7675;
-}
-
-.slider__arrow_left {
-	top: 50%;
-	left: -25%;
-	transform: translateY(-50%);
-}
-.slider__arrow_left .fas {
-	transform: translateX(-10%);
-}
-
-.slider__arrow_right {
-	top: 50%;
-	right: -25%;
-	transform: translateY(-50%);
-}
-.slider__arrow_right .fas {
-	transform: translateX(10%);
-}
-
-.title {
-	width: 475px;
-	height: 130px;
+.admin {
+	width: 70%;
+	min-width: 300px;
+	height: 80%;
+	min-height: 400px;
 	display: flex;
+	justify-content: space-between;
 	flex-flow: column;
-	justify-content: center;
+	overflow: hidden;
+	box-shadow: 0px 0px 5px 1.5px rgba(0, 0, 0, 0.2);
+	background: #ffffff;
+	border-radius: 15px;
+}
+
+.admin__title {
+	height: 10%;
+	display: flex;
 	align-items: center;
-	position: relative;
-	background-color: rgba(56, 69, 79, 0.7);
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate3d(-50%, -50%, 0);
-	z-index: 1;
+	justify-content: center;
+	margin: 15px;
 }
-.title::after {
-	content: "";
-	width: 2px;
-	height: 100px;
-	display: block;
-	position: absolute;
-	z-index: 1;
-	right: -1px;
-	top: 50%;
-	transform: translateY(-50%);
-	background: #eeeeee;
-}
-.title::before {
-	content: "";
-	width: 2px;
-	height: 100px;
-	display: block;
-	position: absolute;
-	z-index: 1;
-	left: -1px;
-	top: 50%;
-	transform: translateY(-50%);
-	background: #eeeeee;
-}
-
-.title__sub {
-	position: relative;
-	font-family: "Montserrat", sans-serif;
-	text-transform: uppercase;
-	font-size: 50px;
-	line-height: 50px;
-	font-weight: 900;
-	color: #ffffff;
-}
-.title__sub::before {
-	content: "";
-	width: 575px;
-	height: 2px;
-	display: block;
-	position: absolute;
-	z-index: 1;
-	top: -15px;
-	left: 50%;
-	transform: translateX(-50%);
-	background: #eeeeee;
-}
-
-.title__sup {
-	position: relative;
+.admin__title h1 {
 	font-family: "Montserrat", sans-serif;
 	text-transform: uppercase;
 	font-size: 30px;
-	line-height: 50px;
-	font-weight: 800;
-	color: #ffffff;
+	font-weight: 400;
+	color: #38454F;
+	letter-spacing: 1px;
 }
-.title__sup::after {
-	content: "";
-	width: 575px;
-	height: 2px;
-	display: block;
-	position: absolute;
-	z-index: 1;
-	bottom: -15px;
-	left: 50%;
-	transform: translateX(-50%);
-	background: #eeeeee;
+.admin__title .fas {
+	margin-right: 10px;
+	font-size: 30px;
+	color: #FF7675;
 }
 
-/* MAIN FOOD CARDS */
-.food {
-	display: flex;
-	flex-flow: column;
-	align-items: center;
-}
-
-/* FOOD CARDS LINKS */
-.links {
+/* ADMIN SECTIONS */
+.admin-links {
 	width: 100%;
-	height: 100px;
+	height: 15%;
+	min-height: 50px;
 	display: flex;
 	justify-content: center;
+	position: relative;
 	background: #ffffff;
-	box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.15), 0 -1.5px 3px rgba(0, 0, 0, 0.15);
+	box-shadow: 0 -1.5px 1.5px rgba(0, 0, 0, 0.15);
 	border-top: 1px solid #cccccc;
-	border-bottom: 1px solid #cccccc;
+}
+.admin-links::after {
+	content: "";
+	width: 80%;
+	height: 1px;
+	position: absolute;
+	top: 15%;
+	left: 50%;
+	transform: translateX(-50%);
+	background: #38454F;
+}
+.admin-links::before {
+	content: "";
+	width: 90%;
+	height: 1px;
+	position: absolute;
+	bottom: 15%;
+	left: 50%;
+	transform: translateX(-50%);
+	background: #38454F;
 }
 
-.links__btns {
-	display: flex;
-	align-items: center;
+.admin-links__btns {
+	justify-content: space-around;
 }
 
-.links__img {
+.admin-links__img {
 	width: 25px;
 	height: 25px;
+	margin-right: 15px;
 }
 
 .btn-case {
@@ -822,14 +729,6 @@
 	padding: 10px;
 	display: flex;
 	align-items: center;
-	border-right: 1px solid #38454F;
-}
-.btn-case:first-child {
-	padding-left: 0;
-}
-.btn-case:last-child {
-	border-right: none;
-	padding-right: 0;
 }
 
 .btn {
@@ -841,190 +740,269 @@
 	cursor: pointer;
 }
 
-/* FOOD CARDS */
-.card-case {
-	margin: 15px 0;
-	display: grid;
-	grid-template-columns: repeat(4, auto);
-	justify-content: space-between;
-	grid-gap: 15px;
+.hr {
+	width: 1px;
+	height: 50%;
+	background: #38454F;
 }
 
-.card {
-	width: 280px;
-	height: 400px;
-	overflow: hidden;
-	background: #ffffff;
-	box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-	border-radius: 2%;
-}
-.card:hover .card__img-case .card__img {
-	transform: scale(1.05);
-}
-.card:hover .card__text {
-	background-color: #ff7675;
-}
-.card:hover .card__text .card__title h1 {
-	color: #ffffff;
-}
-.card:hover .card__text .card__title h1::after {
+/* ADMIN SECTIONS-CASE */
+.admin-case {
 	width: 100%;
-}
-.card:hover .card__text .card__price .card__price_sum {
-	color: #ffffff;
-}
-.card:hover .card__text .card__price .card__price_buy button {
-	color: #ff7675;
-	background: #ffffff;
-}
-.card:hover .card__text .card__price .card__quantity {
-	color: #ff7675;
-	background: #ffffff;
-}
-.card:hover .card__text .card__gramm h2 {
-	color: #ffffff;
-}
-
-.card__img-case {
-	width: 100%;
-	height: 70%;
+	height: 75%;
 	display: flex;
 	justify-content: center;
-	overflow: hidden;
+	background: no-repeat center url("../img/main/background.jpg");
 }
 
-.card__img {
-	transition: all 0.2s linear;
-}
-
-.card-logo-case {
-	width: 50px;
-	height: 50px;
-	position: absolute;
-	z-index: 1;
-	top: 0;
-	left: 15px;
-	transform: translate(-15%, -75%);
-	border-radius: 50%;
-	background-color: rgba(56, 69, 79, 0.5);
-}
-
-.card__logo {
-	width: 35px;
-	height: 35px;
-}
-
-.card__text {
-	width: 100%;
-	height: 30%;
-	position: relative;
-	transition: all 0.2s linear;
-}
-
-.card__title {
-	width: 100%;
-	height: 30%;
-}
-
-.card__title h1 {
-	font-family: "Montserrat", sans-serif;
-	font-size: 20px;
-	font-weight: 400;
-	color: #38454F;
-	position: relative;
-}
-.card__title h1::after {
-	content: "";
-	width: 0;
-	height: 1px;
-	display: block;
-	position: absolute;
-	z-index: 1;
-	bottom: -3px;
-	left: 50%;
-	transform: translateX(-50%);
-	transition: all 0.2s ease-in-out;
+/* PROGUCT CATALOG SECTION */
+.catalog {
+	width: 80%;
+	height: 100%;
+	padding: 0 15px 15px;
+	display: flex;
+	flex-flow: column;
 	background: #ffffff;
 }
 
-.card__price {
+.catalog_disable {
+	/* ОТКЛЮЧЕНИЕ СЕКЦИИ КАТАЛОГА ПРОДУКТОВ */
+	display: none;
+}
+
+.order-row.new {
+	position: relative;
+}
+
+.order__product.new {
 	width: 100%;
-	height: 50%;
+}
+
+.order__img.new {
+	width: 30%;
+	max-width: 75px;
+}
+
+.order__info.new {
+	width: 100%;
+	flex-flow: row nowrap;
+	align-items: center;
+	justify-content: space-around;
+}
+.order__info.new h1 {
+	margin: 0;
+	font-size: 16px;
+	line-height: 20px;
+}
+
+.ghost-order-button {
+	width: 40px;
+	height: 40px;
+	position: absolute;
+	bottom: 0px;
+	left: 50%;
+	transform: translateX(-50%);
+	border-radius: 50%;
+	color: #ffffff;
+	background: #FF7675;
+	font-size: 30px;
+	box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+	cursor: pointer;
+	transition: 0.2s;
+}
+.ghost-order-button .fas {
+	width: 100%;
+	height: 100%;
+	text-shadow: 1.5px 1.5px 3px rgba(0, 0, 0, 0.25);
+}
+.ghost-order-button:hover {
+	font-size: 40px;
+	color: #FF7675;
+	background: none;
+	box-shadow: none;
+}
+.ghost-order-button:active {
+	font-size: 30px;
+	transition: 0.025s;
+}
+
+.ghost-order-row {
+	width: 100%;
+	height: 100px;
+	padding: 15px;
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	transform: translateY(125%);
+	z-index: 1;
+	border-radius: 15px;
+	background: #FF7675;
+	box-shadow: 0px 0px 5px 1.5px rgba(0, 0, 0, 0.2);
+	opacity: 1;
+}
+.ghost-order-row::after {
+	content: "";
+	width: 30px;
+	height: 30px;
+	position: absolute;
+	top: 0px;
+	left: 50%;
+	z-index: 0;
+	transform: translate(-50%, -50%) rotate(45deg);
+	background: #FF7675;
+	box-shadow: -1.5px -1.5px 1.5px rgba(0, 0, 0, 0.2);
+}
+.ghost-order-row form {
+	justify-content: space-around;
+}
+
+.admin-input {
+	width: 18%;
+	height: 50px;
+	padding: 15px;
+	border: 1px solid #38454F;
+	border-radius: 10px;
+	background: #ffffff;
+	font-family: "Montserrat", sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	color: #38454F;
+	transition: all 0.1s linear;
+}
+.admin-input::placeholder {
+	opacity: 0.8;
+	text-align: center;
+	font-family: "Montserrat", sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+	font-style: italic;
+	letter-spacing: 1px;
+	color: #38454F;
+}
+.admin-input:hover, .admin-input:focus {
+	border: 1px solid #FF7675;
+	box-shadow: 0px 0px 5px 1.5px rgba(0, 0, 0, 0.2);
+}
+.admin-input:nth-child(1) {
+	width: 12%;
+}
+.admin-input:nth-child(2) {
+	width: 20%;
+}
+.admin-input:nth-child(3) {
+	width: 20%;
+}
+.admin-input:nth-child(4) {
+	width: 25%;
+}
+.admin-input:nth-child(5) {
+	width: 10%;
+}
+
+/* ORDER HISTORY SECTION */
+.history {
+	width: 80%;
+	height: 100%;
+	padding: 0 15px 15px;
+	display: flex;
+	flex-flow: column;
+	background: #ffffff;
+}
+
+.history_disable {
+	/* ОТКЛЮЧЕНИЕ СЕКЦИИ ИСТОРИИ ЗАКАЗОВ */
+}
+
+.cart__sec {
+	width: 100%;
+	padding: 15px;
+	border-bottom: 1px solid #333333;
+	font-family: "Montserrat", sans-serif;
+	text-transform: uppercase;
+	font-size: 18px;
+	font-weight: 400;
+	color: #38454F;
+	letter-spacing: 1px;
+}
+.cart__sec .cart__product-sec {
+	width: 50%;
+	text-align: center;
+}
+.cart__sec .cart__quantity-sec {
+	width: 25%;
+	text-align: center;
+}
+.cart__sec .cart__client-sec {
+	width: 15%;
+	text-align: center;
+}
+.cart__sec .cart__sum-sec {
+	width: 10%;
+	text-align: center;
+}
+
+.order-sec {
+	width: 100%;
+	position: relative;
+}
+
+.order-row-sec {
+	width: 100%;
+	display: flex;
+	padding: 15px;
+	border-bottom: 1px solid #333333;
+}
+.order-row-sec:hover .order__sum::after {
+	width: 100%;
+}
+.order-row-sec:nth-child(even) {
+	background: #eeeeee;
+}
+
+.order__info-sec {
+	width: 50%;
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
 }
-
-.card__price_sum {
-	text-decoration: none;
+.order__info-sec h1 {
+	margin: 0;
 	font-family: "Montserrat", sans-serif;
-	font-size: 30px;
+	font-weight: 400;
+	color: #38454F;
+	font-size: 16px;
+	line-height: 20px;
+}
+
+.order__quantity-sec {
+	width: 20%;
+	margin: 0 2.5%;
+	height: 30px;
+	color: #ffffff;
+	background: #ff7675;
+	box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+.order__quantity-sec span {
+	font-family: "Montserrat", sans-serif;
+	font-size: 20px;
 	font-weight: 600;
+	color: inherit;
+	text-shadow: 1.5px 1.5px 3px rgba(0, 0, 0, 0.25);
+}
+
+.order__client-sec {
+	width: 15%;
+	font-family: "Montserrat", sans-serif;
+	font-size: 18px;
+	font-weight: 400;
 	color: #38454F;
 }
 
-.card__price_buy {
-	width: 120px;
-	height: 37px;
+.order__sum-sec {
+	width: 10%;
 	position: relative;
-}
-.card__price_buy button {
-	width: 100%;
-	height: 100%;
-	text-decoration: none;
-	text-align: center;
 	font-family: "Montserrat", sans-serif;
-	font-size: 20px;
-	font-weight: 600;
-	cursor: pointer;
-	transition: all 0.2s linear;
-	color: #ffffff;
-	background: #ff7675;
-}
-
-.card__quantity {
-	width: 120px;
-	height: 37px;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	position: absolute;
-	z-index: 1;
-	top: 0;
-	right: 0;
-	color: #ffffff;
-	background: #ff7675;
-	transition: all 0.2s linear;
-}
-.card__quantity span {
-	font-family: "Montserrat", sans-serif;
-	font-size: 20px;
-	font-weight: 700;
-	color: inherit;
-}
-.card__quantity button {
-	height: 100%;
-	width: 40%;
-	font-size: 20px;
-	color: inherit;
-	cursor: pointer;
-}
-
-.card__quantity_disable {
-	/* ОТКЛЮЧЕНИЕ ФУНКЦИИ ПОКУПКИ */
-	display: none;
-}
-
-.card__gramm {
-	width: 100%;
-	height: 20%;
-	display: flex;
-	justify-content: center;
-	align-items: flex-start;
-}
-.card__gramm h2 {
-	font-family: "Montserrat", sans-serif;
-	font-size: 14px;
+	font-size: 18px;
 	font-weight: 400;
 	color: #38454F;
 }
@@ -1199,4 +1177,8 @@
 	font-weight: 600;
 	color: #38454F;
 	letter-spacing: 1px;
+}
+
+.footer {
+	position: relative;
 }

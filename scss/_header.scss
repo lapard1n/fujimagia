@@ -180,7 +180,7 @@
 
 .cart {
     width: 500px;
-    height: auto;
+    height: 500px;
     min-height: 400px;
     padding: 0 15px 100px;
     display: flex;
@@ -189,8 +189,9 @@
     align-items: center;
     position: absolute;
     top: 85px;
-    transform: translate(60%);
     z-index: 3;
+    transform: translate(60%);
+    overflow-y: scroll;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
     background: #ffffff;
     border-radius: 15px;
