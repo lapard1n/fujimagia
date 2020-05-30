@@ -11,6 +11,9 @@ class Basket {
         this.divCartTotal = document.getElementById('cartTotal');
         this.spanTotalCount = document.getElementById('cart__total-count');
 
+        // Good.initFromStore();
+        // console.log(res.goods);
+
         this.updateCommonPrice();
     }
 
@@ -23,6 +26,8 @@ class Basket {
         }
         this.divCommonPrice.innerText = this.commonPrice;
         this.spanTotalCount.innerText = this.totalItems;
+
+
     }
     incGood(){
         const itemsCount = document.querySelector('.nav__sum');
@@ -37,7 +42,8 @@ class Basket {
         referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
     }
 
-    addGood(good = 1) {
+    addGood(good) {
+        console.log(good.basketHtml);
         if(!this.goods.includes(good)){
             this.goods.push(good);
 
@@ -50,6 +56,7 @@ class Basket {
         // this.spanTotalCount.innerText = good.commonCount;
         good.basketViewUpdate();
         this.updateCommonPrice();
+        this.updateState(this, good);
     }
     removeAfter(node, referenceNode){
         referenceNode.parentNode.removeChild(node, referenceNode.nextSibling);
@@ -68,17 +75,35 @@ class Basket {
                 }
             });
         }
-        console.log(this.goods);
+        // console.log(this.goods);
         good.commonCount -= good.count;
         good.commonPrice = good.commonCount * good.price;
         // console.log(good.count, good.commonCount, good.price);
         this.divCartWindow.removeChild(good.basketHtml);
         good.basketViewUpdate();
         this.updateCommonPrice();
+        this.updateState(this, good);
     }
 
-    updateGood(good){
+    stringToHTML (str){
+        let dom = document.createElement('i');
+        dom.innerHTML = str;
+        return dom;
+    };
 
+    updateState(basketState, goodState){
+        const bState = {
+            goods: basketState.goods//JSON.stringify(basketState.goods)
+            , commonPrice: basketState.commonPrice
+            , commonCount: basketState.commonCount
+        };
+        const gState = {
+            count: goodState.count
+            , commonCount: goodState.commonCount
+            , commonPrice: goodState.commonPrice
+            , basketHtml: goodState.basketHtml.outerHTML
+        }
+        localStorage.setItem('cart', JSON.stringify(bState));
+        localStorage.setItem('card', JSON.stringify(gState));
     }
-
 }

@@ -27,11 +27,13 @@ class Shop{
 
         const answer = await response.json();
         const dataItems = answer.response.result[0];
+
         for (const dataItem of dataItems)
         {
             const good = new Good(dataItem);
             this.goods.push(good);
         }
+
     }
     showGoods(){
         this.divShopWindow.innerHTML = "";
@@ -39,6 +41,8 @@ class Shop{
             this.divShopWindow.appendChild(good.html);
         }
     }
+
+
     categoriesControl(){
 
         const getCards = () => { return document.querySelectorAll(".card"); }

@@ -253,7 +253,7 @@
 	border-top-right-radius: 0;
 }
 
-.cart_disable {
+.cart__disable {
 	/* ОТКЛЮЧЕНИЕ ФУНКЦИИ КОРЗИНЫ */
 	display: none;
 }
@@ -315,6 +315,9 @@
 	left: 0;
 	z-index: 3;
 	background: #ffffff;
+}
+.order__clean__disable{
+	display: none;
 }
 .order__clean .order__background {
 	width: 100%;
@@ -977,9 +980,7 @@
 	color: #ffffff;
 	background: #ff7675;
 }
-.card__price_buy__disable{
-	display: none;
-}
+
 .card__quantity {
 	width: 120px;
 	height: 37px;

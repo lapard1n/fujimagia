@@ -37,6 +37,36 @@ class Good {
             element.addEventListener('click', () => this[handlerName]());
         }
     }
+
+    async initFromStore(basketState = null, goodState = null) {
+
+        let goodFromStore = null;
+
+        let cardState = JSON.parse(localStorage.getItem('card'));
+        let cartState = JSON.parse(localStorage.getItem('cart'));
+
+
+        cartState.goods.forEach((e) => {
+            basket.goods.push(e);
+        });
+
+        goodFromStore = cardState.basketHtml;
+        const temp = document.createElement('div');
+        temp.innerHTML = goodFromStore;
+        this.html = temp.firstChild;
+        for (const element of this.html.querySelectorAll('[data-onclick]')){
+            const handlerName = element.dataset.onclick;
+            element.addEventListener('click', () => this[handlerName]());
+        }
+
+        basketState.divCartWindow.insertBefore(goodFromStore, null);
+        // this.commonPrice = res.goods.commonPrice;
+        // this.commonCount = res.goods.length;
+        // this.addGood();
+        // let res = JSON.parse(basket.initFromStore());
+        // console.log(res.goods);
+    }
+
     basketViewInit(){
         let str = Good.basketHtml.slice();
         for(const substr of str.match(/{{% \w+ %}}/g)){
@@ -52,29 +82,30 @@ class Good {
         }
     }
 
-    plus(){
-        this.count += 1;
-        this.viewUpdate();
-        this.addToBasket();
-    }
-    minus(){
-        // if(this.count != 0)
-        {
-            this.count -= 1;
-            this.viewUpdate();
-            this.removeFromBasket();
-            this.commonUpdate();
-            // this.basketViewUpdate();
-        }
-    }
+    // plus(){
+    //     this.count += 1;
+    //     this.viewUpdate();
+    //     this.addToBasket();
+    // }
+    // minus(){
+    //     // if(this.count != 0)
+    //     {
+    //         this.count -= 1;
+    //         this.viewUpdate();
+    //         this.removeFromBasket();
+    //         this.commonUpdate();
+    //         // this.basketViewUpdate();
+    //     }
+    // }
 
     commonPlus(){
         this.commonCount += 1;
         this.commonPrice = this.commonCount * this.price;
+        basket.updateState(basket, this);
+        // this.addToBasket();
         this.basketViewUpdate();
 
         this.commonUpdate();
-        // basket.incGood();
     }
     commonMinus(){
 
@@ -83,8 +114,7 @@ class Good {
             this.commonPrice = this.commonCount * this.price;
             this.basketViewUpdate();
 
-            // this.commonUpdate();
-            // basket.decGood();
+            this.commonUpdate();
         }else
         {
             this.removeFromBasket();
