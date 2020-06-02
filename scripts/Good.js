@@ -1,5 +1,6 @@
 class Good {
     constructor(params) {
+        this.id = params.id;
         this.name = params.name;
         this.imgSrc = params.imgSrc;
         this.gram = params.gram;
@@ -31,40 +32,14 @@ class Good {
         temp.innerHTML = str;
 
         this.html = temp.firstChild;
+
         for (const element of this.html.querySelectorAll('[data-onclick]')){
             const handlerName = element.dataset.onclick;
 
             element.addEventListener('click', () => this[handlerName]());
         }
-    }
 
-    async initFromStore(basketState = null, goodState = null) {
-
-        let goodFromStore = null;
-
-        let cardState = JSON.parse(localStorage.getItem('card'));
-        let cartState = JSON.parse(localStorage.getItem('cart'));
-
-
-        cartState.goods.forEach((e) => {
-            basket.goods.push(e);
-        });
-
-        goodFromStore = cardState.basketHtml;
-        const temp = document.createElement('div');
-        temp.innerHTML = goodFromStore;
-        this.html = temp.firstChild;
-        for (const element of this.html.querySelectorAll('[data-onclick]')){
-            const handlerName = element.dataset.onclick;
-            element.addEventListener('click', () => this[handlerName]());
-        }
-
-        basketState.divCartWindow.insertBefore(goodFromStore, null);
-        // this.commonPrice = res.goods.commonPrice;
-        // this.commonCount = res.goods.length;
-        // this.addGood();
-        // let res = JSON.parse(basket.initFromStore());
-        // console.log(res.goods);
+ //       console.log();
     }
 
     basketViewInit(){
@@ -79,6 +54,15 @@ class Good {
         for (const element of this.basketHtml.querySelectorAll('[data-onclick]')){
             const handlerName = element.dataset.onclick;
             element.addEventListener('click', () => this[handlerName]());
+        }
+        let cartState = JSON.parse(localStorage.getItem('cart'));
+        // console.log(cartState.goods);
+        if (cartState) {
+            cartState.goods.forEach((e) => {
+                if (this.id === e.id) {
+                    this.addToBasket(true);
+                }
+            });
         }
     }
 
@@ -128,8 +112,8 @@ class Good {
         this.basketHtml.querySelector('.order-row #card__quantity-current').textContent = this.commonCount;
     }
 
-    addToBasket(){
-        basket.addGood(this);
+    addToBasket(fromStore = false){
+        basket.addGood(this, fromStore);
     }
     removeFromBasket(){
         basket.removeGood(this);

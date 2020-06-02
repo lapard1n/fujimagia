@@ -32,7 +32,7 @@ class Rest
         $this->request = stream_get_contents($handler);
         $this->validateRequest($this->request);
 
-//        if ('generatetoken' != strtolower($this->serviceName))
+//        if ('authuser' != strtolower($this->serviceName))
 //        {
 //            $this->validateToken();
 //        }
@@ -132,13 +132,12 @@ class Rest
                 );
             }
 
-            if( $user['active'] == 0 ) {
-                $this->returnResponse(
-                    USER_NOT_ACTIVE
-                    , "This user may be decactived. Please contact to admin."
-                );
-            }
             $this->userId = $payLoad->userId;
+
+            $this->returnResponse(
+                USER_NOT_ACTIVE
+                , $payLoad
+            );
 
         }catch (\Exception $e){
             $this->throwError(
@@ -225,5 +224,10 @@ class Rest
             ATHORIZATION_HEADER_NOT_FOUND
             , 'Access Token Not found'
         );
+    }
+
+    public function getParams($data)
+    {
+        return htmlspecialchars(strip_tags($this->params["{$data}"]));
     }
 }

@@ -19,60 +19,6 @@ class Api extends Rest
         $this->dbConnectionHandler = $this->db->connect();
     }
 
-    public function generateToken()
-    {
-        $email = $this->validateParams(
-            'email'
-            , $this->params['email']
-            , STRING
-        );
-        $password = $this->validateParams(
-            'password'
-            , $this->params['password']
-            , STRING
-        );
-        try {
-
-            $stmt = $this->dbConnectionHandler->prepare("SELECT * FROM users WHERE email = :email AND password = :password");
-            $stmt->bindParam(':email', $email);
-            $stmt->bindParam(':password', $password);
-            $stmt->execute();
-            $user = $stmt->fetch(\PDO::FETCH_ASSOC);
-
-            if (!is_array($user)) {
-                $this->returnResponse(
-                    INVALID_USER_PASS
-                    , ["message" => "Error login data"]
-                );
-            }
-
-            if (!$user['active']) {
-                $this->returnResponse(
-                    USER_NOT_ACTIVE
-                    , ["message" => "User is not activated. Please contact to admin"]
-                );
-            }
-            $payLoad = array(
-                'iat' => time()
-                , 'iss' => 'localhost:3000'
-                , 'exp' => time() + (60 * 15)
-                , 'userId' => $user['id']
-            );
-            $token = JWT::encode($payLoad, SECRETE_KEY);
-            $data = ['token' => $token];
-
-            $this->returnResponse(
-                SUCCESS_RESPONSE
-                , $data
-            );
-        } catch (\Exception $e) {
-            $this->throwError(
-                JWT_PROCESSING_ERROR
-                , $e->getMessage()
-            );
-        }
-    }
-
     public function getProducts()
     {
         $product = new Puduct();
@@ -113,6 +59,84 @@ class Api extends Rest
         $this->returnResponse(
             SUCCESS_RESPONSE
             , ['message' => $msg]
+        );
+    }
+
+    public function validateToken()
+    {
+        parent::validateToken();
+    }
+
+    public function authUser()
+    {
+        $email = $this->validateParams('email', $this->getParams('email'), STRING, false);
+        $password = $this->validateParams('password', $this->getParams('password'), STRING, false);
+        $user = new User();
+        $user->setEmail($email)
+             ->setPassword($password);
+
+        try {
+            $dataFromDB = $user->getUser();
+
+            if(!is_array($dataFromDB)){
+                $this->returnResponse(
+                    INVALID_USER_PASS
+                    , ["message" => "Error login data "]
+                );
+            }
+
+            if(!password_verify($password, $dataFromDB['password']))
+            {
+                $this->returnResponse(
+                    INVALID_USER_PASS
+                    , ["message" => "Incorrect Password"]
+                );
+            }
+
+            $payLoad = array(
+                'iat' => time()
+                , 'iss' => 'fuji.local'
+                , 'exp' => time() + (60 * 15)
+                , 'userId' => $dataFromDB['id']
+            );
+            $token = JWT::encode($payLoad, SECRETE_KEY);
+            $data = ['token' => $token];
+
+            $this->returnResponse(
+                SUCCESS_RESPONSE
+                , $data
+            );
+        }catch (\Exception $e) {
+            $this->throwError(
+                JWT_PROCESSING_ERROR
+                , $e->getMessage()
+            );
+        }
+
+    }
+
+    public function registerUser()
+    {
+        $name = $this->validateParams('name', $this->getParams('name'), STRING, false);
+        $email = $this->validateParams('email', $this->getParams('email'), STRING, false);
+        $addr = $this->validateParams('addr', $this->getParams('addr'), STRING, false);
+        $mobile = $this->validateParams('mobile', $this->getParams('mobile'), STRING, false);
+        $password = $this->validateParams('password', $this->getParams('password'), STRING, false);
+
+        $user = new User();
+        $user->setName($name)
+            ->setAddress($addr)
+            ->setEmail($email)
+            ->setMobile($mobile)
+            ->setPassword($password);
+
+        if($user->isExistByEmail()) $msg = "User with this mail already exists";
+        elseif (!$user->insert()) $msg = "Failed to insert";
+        else $msg = "Insert Succesfuly";
+
+        $this->returnResponse(
+            SUCCESS_RESPONSE
+            , ['message:' => $msg]
         );
     }
 

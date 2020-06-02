@@ -11,7 +11,7 @@ class Basket {
         this.divCartTotal = document.getElementById('cartTotal');
         this.spanTotalCount = document.getElementById('cart__total-count');
 
-        // Good.initFromStore();
+        // this.initFromStore();
         // console.log(res.goods);
 
         this.updateCommonPrice();
@@ -41,9 +41,11 @@ class Basket {
     insertAfter(newNode, referenceNode) {
         referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
     }
+    removeAfter(node, referenceNode){
+        referenceNode.parentNode.removeChild(node, referenceNode.nextSibling);
+    }
+    async addGood(good, fromStore = false) {
 
-    addGood(good) {
-        console.log(good.basketHtml);
         if(!this.goods.includes(good)){
             this.goods.push(good);
 
@@ -56,11 +58,9 @@ class Basket {
         // this.spanTotalCount.innerText = good.commonCount;
         good.basketViewUpdate();
         this.updateCommonPrice();
-        this.updateState(this, good);
+        if(!fromStore) this.updateState(this, good);
     }
-    removeAfter(node, referenceNode){
-        referenceNode.parentNode.removeChild(node, referenceNode.nextSibling);
-    }
+
     removeGood(good){
         if(this.goods.includes(good)){
 
@@ -85,25 +85,12 @@ class Basket {
         this.updateState(this, good);
     }
 
-    stringToHTML (str){
-        let dom = document.createElement('i');
-        dom.innerHTML = str;
-        return dom;
-    };
-
     updateState(basketState, goodState){
         const bState = {
             goods: basketState.goods//JSON.stringify(basketState.goods)
             , commonPrice: basketState.commonPrice
             , commonCount: basketState.commonCount
         };
-        const gState = {
-            count: goodState.count
-            , commonCount: goodState.commonCount
-            , commonPrice: goodState.commonPrice
-            , basketHtml: goodState.basketHtml.outerHTML
-        }
         localStorage.setItem('cart', JSON.stringify(bState));
-        localStorage.setItem('card', JSON.stringify(gState));
     }
 }

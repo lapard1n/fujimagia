@@ -12,7 +12,7 @@ class Shop{
     async loadGoods(){
         this.goods = [];
 
-        const url = 'http://localhost:3000/api';
+        const url = 'http://fuji.local/api/';
         const postData = {
             name: 'getProducts',
             params:{}
@@ -24,10 +24,8 @@ class Shop{
                 'Content-Type': 'application/json'
             }
         });
-
         const answer = await response.json();
         const dataItems = answer.response.result[0];
-
         for (const dataItem of dataItems)
         {
             const good = new Good(dataItem);
@@ -40,8 +38,8 @@ class Shop{
         for (const good of this.goods){
             this.divShopWindow.appendChild(good.html);
         }
-    }
 
+    }
 
     categoriesControl(){
 

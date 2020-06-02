@@ -2,10 +2,10 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Вход</title>
-    <link rel="stylesheet" type="text/css" href="css/login.css">
+    <title>Ваш Кабинет</title>
+    <link rel="stylesheet" type="text/css" href="css/account.css">
     <link rel="stylesheet" href="fonts/Fontawesome/css/all.css">
-    <link rel="shortcut icon" href="../img/logo_sushi.svg" type="image/x-icon">
+    <link rel="shortcut icon" href="img/logo_sushi.svg" type="image/x-icon">
 </head>
 <body>
     <header class="header">
@@ -20,13 +20,13 @@
                     </div>
                     <a class="nav__links hover-line" href="tel:+78005553535">+7 (800) 555 3535</a>
                 </div>
-                <a class="nav__links hover-line" href="about-us.html">
+                <a class="nav__links hover-line" href="about-us.php">
                     <i class="fas fa-pencil-alt"></i>
                     О нас
                 </a>
             </div>
             <!-- HEADER MENU LOGO -->
-            <a class="nav__logo" href="index.html">
+            <a href="index.php" class="nav__logo">
                 <img src="img/header/header_sushi.svg">
                 <div class="nav__logo_text">
                     <span>Магия</span>
@@ -36,16 +36,16 @@
             <!-- HEADER MENU ACCOUNT -->
             <div class="nav__acc">
                 <div class="nav__login">
-                    <a class="nav__links hover-line" href="login.html">
+                    <a class="nav__links hover-line" href="login.php">
                         <i class="fas fa-key"></i>
                         Вход
                     </a>
-                    <a class="nav__links hover-line" href="registration.html">
+                    <a class="nav__links hover-line" href="registration.php">
                         <i class="fas fa-lock"></i>
                         Регистрация
                     </a>
                 </div>
-                <a class="nav__account nav__account_disable  nav__links hover-line" href="account.html">
+                <a class="nav__account nav__account_disable nav__links hover-line" href="account.php">
                     <i class="fas fa-user"></i>
                     Ваш кабинет
                 </a>
@@ -130,34 +130,126 @@
                 <div class="cart__price_sum">
                     Счет: <span>335 Р<i class="fas fa-tags"></i></span>
                 </div>
-                <a class="cart__price_btn" type="button" href="purchase.html">Оформить</a>
+                <a class="cart__price_btn" type="button" href="purchase.php">Оформить</a>
             </div>
         </section>
     </header>
     <main class="main">
-        <!-- LOGIN FORM -->
-        <section class="login">
-            <div class="login__img">
-                <div class="login__background"></div>
-                <div class="title">
-                    <h1 class="title__sub">Суши с Фудзи</h1>
-                    <h1 class="title__sup">И в этом наша магия</h1>
-                </div>
+        <div class="account">
+            <div class="account__title">
+                <i class="fas fa-pencil-alt"></i>
+                <h1>Личный Кабинет</h1>
             </div>
-            <div class="login-case">
-                <div class="login__title">
-                    <h1>Добро</h1>
-                    <h1>Пожаловать</h1>
-                </div>
-                <form action="../index.html" class="login__form" method="POST" >
-                    <input class="input" type="email" name="username" placeholder="Ваша почта" autofocus>
-                    <input class="input" type="password" name="password" placeholder="Ваш пароль" readonly onfocus="this.removeAttribute('readonly')">
-                    <div class="login__help">
-                        <a class="login__help_link hover-line" href="#">Забыли пароль?</a>
+            <!-- ACCOUNT SECTIONS -->
+            <section class="account-links">
+                <div class="account-links__btns">
+                    <div class="btn-case">
+                        <div class="account-links__img">
+                            <img src="img/logo_sushi.svg">
+                        </div>
+                        <button class="btn hover-line">Каталог товаров</button>
                     </div>
-                    <input class="button" type="submit" value="Вход">
+                    <div class="hr"></div>
+                    <div class="btn-case">
+                    <div class="account-links__img">
+                        <img src="img/main/links_logo.svg">
+                    </div>
+                        <button class="btn hover-line">История заказов</button>
+                    </div>
+                </div>
+            </section>
+            <!-- ACCOUNT SECTIONS-CASE -->
+            <div class="account-case">
+                <!-- ACCOUNT DATA SECTION -->
+                <section class="setting setting_disable">
+                    <form class="setting__form left" action="">
+                        <label class="setting__label" for="tel">
+                            <h1>Ваше имя:</h1><span class="user-data" id="">Пупа</span>
+                            <input class="setting__input" type="tel" id="tel" placeholder="Введите новое имя">
+                        </label>
+                        <label class="setting__label" for="tel">
+                            <h1>Ваш номер:</h1><span class="user-data" id="">+7 (950) 123-45-67</span>
+                            <input class="setting__input" type="tel" id="tel" placeholder="Введите новый номер">
+                        </label>
+                        <label class="setting__label" for="mail">
+                            <h1>Ваш почта:</h1><span class="user-data" id="">pupa_lupa@za.ru</span>
+                            <input class="setting__input" type="email" id="mail" placeholder="Введите новую почту">
+                        </label>
+                    </form>
+                    <form class="setting__form right" action="">
+                        <label class="setting__label" for="old-pass">
+                            <h1>Старый пароль:</h1>
+                            <input class="setting__input" type="text" id="old-pass" placeholder="Введите старый пароль">
+                        </label>
+                        <label class="setting__label" for="new-pass">
+                            <h1>Новый пароль:</h1>
+                            <input class="setting__input" type="text" id="new-pass" placeholder="Введите новый пароль">
+                        </label>
+                        <input class="setting__button" type="button" value="Принять">
+                    </form>
+                </section>
+                <!-- ORDER HISTORY SECTION -->
+                <section class="history history_disable">
+                    <div class="cart__sec">
+                        <div class="cart__product-sec">Имя товара</div>
+                        <div class="cart__quantity-sec">Дата заказа</div>
+                        <div class="cart__sum-sec">Цена</div>
+                    </div>
+                    <div class="order-sec">
+                        <div class="order-row-sec">
+                            <div class="order__info-sec">
+                                <h1>Это суши - суши</h1>
+                                <h1>200 г</h1>
+                            </div>
+                            <div class="order__quantity-sec">
+                                <span>28.08.2019</span>
+                            </div>
+                            <div class="order__sum-sec">99 Р</div>
+                        </div>
+                        <div class="order-row-sec">
+                            <div class="order__info-sec">
+                                <h1>Это суши - суши</h1>
+                                <h1>200 г</h1>
+                            </div>
+                            <div class="order__quantity-sec">
+                                <span>28.08.2019</span>
+                            </div>
+                            <div class="order__sum-sec">99 Р</div>
+                        </div>
+                        <div class="order-row-sec">
+                            <div class="order__info-sec">
+                                <h1>Это суши - суши</h1>
+                                <h1>200 г</h1>
+                            </div>
+                            <div class="order__quantity-sec">
+                                <span>28.08.2019</span>
+                            </div>
+                            <div class="order__sum-sec">99 Р</div>
+                        </div>
+                        <div class="order-row-sec">
+                            <div class="order__info-sec">
+                                <h1>Это суши - суши</h1>
+                                <h1>200 г</h1>
+                            </div>
+                            <div class="order__quantity-sec">
+                                <span>28.08.2019</span>
+                            </div>
+                            <div class="order__sum-sec">99 Р</div>
+                        </div>
+                        <div class="order-row-sec">
+                            <div class="order__info-sec">
+                                <h1>Это суши - суши</h1>
+                                <h1>200 г</h1>
+                            </div>
+                            <div class="order__quantity-sec">
+                                <span>28.08.2019</span>
+                            </div>
+                            <div class="order__sum-sec">99 Р</div>
+                        </div>
+                    </div>
+                </section>
             </div>
-        </section>
+        </div>
     </main>
     <footer class="footer">
         <div class="footer-case">

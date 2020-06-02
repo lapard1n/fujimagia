@@ -2,10 +2,10 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>О нас</title>
-    <link rel="stylesheet" type="text/css" href="css/about-us.css">
+    <title>Вход</title>
+    <link rel="stylesheet" type="text/css" href="css/login.css">
     <link rel="stylesheet" href="fonts/Fontawesome/css/all.css">
-    <link rel="shortcut icon" href="img/logo_sushi.svg" type="image/x-icon">
+    <link rel="shortcut icon" href="../img/logo_sushi.svg" type="image/x-icon">
 </head>
 <body>
     <header class="header">
@@ -20,13 +20,13 @@
                     </div>
                     <a class="nav__links hover-line" href="tel:+78005553535">+7 (800) 555 3535</a>
                 </div>
-                <a class="nav__links hover-line" href="about-us.html">
+                <a class="nav__links hover-line" href="about-us.php">
                     <i class="fas fa-pencil-alt"></i>
                     О нас
                 </a>
             </div>
             <!-- HEADER MENU LOGO -->
-            <a href="index.html" class="nav__logo">
+            <a class="nav__logo" href="index.php">
                 <img src="img/header/header_sushi.svg">
                 <div class="nav__logo_text">
                     <span>Магия</span>
@@ -36,16 +36,16 @@
             <!-- HEADER MENU ACCOUNT -->
             <div class="nav__acc">
                 <div class="nav__login">
-                    <a class="nav__links hover-line" href="login.html">
+                    <a class="nav__links hover-line" href="login.php">
                         <i class="fas fa-key"></i>
                         Вход
                     </a>
-                    <a class="nav__links hover-line" href="registration.html">
+                    <a class="nav__links hover-line" href="registration.php">
                         <i class="fas fa-lock"></i>
                         Регистрация
                     </a>
                 </div>
-                <a class="nav__account nav__account_disable nav__links hover-line" href="account.html">
+                <a class="nav__account nav__account_disable  nav__links hover-line" href="account.php">
                     <i class="fas fa-user"></i>
                     Ваш кабинет
                 </a>
@@ -130,60 +130,34 @@
                 <div class="cart__price_sum">
                     Счет: <span>335 Р<i class="fas fa-tags"></i></span>
                 </div>
-                <a class="cart__price_btn" type="button" href="purchase.html">Оформить</a>
+                <a class="cart__price_btn" type="button" href="purchase.php">Оформить</a>
             </div>
         </section>
     </header>
     <main class="main">
-        <div class="about">
-            <div class="section__gr">
-                <div class="section__gr-case">
-                    <h1 class="section__gr-text h1">Мы прибыли к Вам прямиком с берегов Востока.</h1>
-                    <h2 class="section__gr-text h2">И специально для Вас приготовили отменное блюдо, прошедшее века закалки и оттачивания легендарного рецепта, и имя ему - Суши!</h2>
-                    <h1 class="section__gr-text h1">Сотворенный магией у сколна великой Фудзиямы.</h1>
+        <!-- LOGIN FORM -->
+        <section class="login">
+            <div class="login__img">
+                <div class="login__background"></div>
+                <div class="title">
+                    <h1 class="title__sub">Суши с Фудзи</h1>
+                    <h1 class="title__sup">И в этом наша магия</h1>
                 </div>
             </div>
-            <img class="one-suhini" src="img/one-suhini.png">
-            <div class="section__ff">
-                <img class="three-sushka" src="img/three-sushka.png">
-                <img class="sushi-center" src="img/shushi-smile.png">
-                <div class="section__ff-case">
-                    <div class="section__ff-right">
-                        <h1>Рассчитывайте на нас!</h1>
-                        <ol>
-                            <li>На нашу Скорость</li>
-                            <li>На наше Качество</li>
-                            <li>На наше Офомление</li>
-                        </ol>
-                        <h1>Это наши постулаты</h1>
+            <div class="login-case">
+                <div class="login__title">
+                    <h1>Добро</h1>
+                    <h1>Пожаловать</h1>
+                </div>
+                <form action="../index.html" class="login__form" method="POST" >
+                    <input class="input" type="email" name="username" placeholder="Ваша почта" autofocus>
+                    <input class="input" type="password" name="password" placeholder="Ваш пароль" readonly onfocus="this.removeAttribute('readonly')">
+                    <div class="login__help">
+                        <a class="login__help_link hover-line" href="#">Забыли пароль?</a>
                     </div>
-                    <div class="section__ff-left">
-                        <h1>Делитесь Вашим мнением!</h1>
-                        <ol>
-                            <li>Мы прислушиваемся к Вам</li>
-                            <li>Мы рады пожеланиям</li>
-                            <li>Мы анализируем критику</li>
-                        </ol>
-                        <h1>Вместе мы станем лучше</h1>
-                    </div>
-                </div>
-                <img class="four-sushich" src="img/four-sushich.png">
+                    <input class="button" type="submit" value="Вход">
             </div>
-            <img class="two-shusha" src="img/two-shusha.png">
-            <div class="section__rd">
-                <div class="section__rd-case">
-                    <h1 class="section__rd-text h1">
-                        Мы тоже люди! И сами являемся клиентами.
-                    </h1>
-                    <h2 class="section__rd-text h2">
-                        Именно поэтому мы хотим и делаем все, как человек для человека. Показывая это как в кулинарии, так и в нашем сервисе.
-                    </h2>
-                    <h1 class="section__rd-text h1">
-                        Ведь не зря говорят:"Как ты к людям, так и они к тебе"!
-                    </h1>
-                </div>
-            </div>
-        </div>
+        </section>
     </main>
     <footer class="footer">
         <div class="footer-case">
