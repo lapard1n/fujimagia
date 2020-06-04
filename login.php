@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="css/login.css">
     <link rel="stylesheet" href="fonts/Fontawesome/css/all.css">
     <link rel="shortcut icon" href="../img/logo_sushi.svg" type="image/x-icon">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
     <header class="header">
@@ -144,18 +145,8 @@
                     <h1 class="title__sup">И в этом наша магия</h1>
                 </div>
             </div>
-            <div class="login-case">
-                <div class="login__title">
-                    <h1>Добро</h1>
-                    <h1>Пожаловать</h1>
-                </div>
-                <form action="../index.html" class="login__form" method="POST" >
-                    <input class="input" type="email" name="username" placeholder="Ваша почта" autofocus>
-                    <input class="input" type="password" name="password" placeholder="Ваш пароль" readonly onfocus="this.removeAttribute('readonly')">
-                    <div class="login__help">
-                        <a class="login__help_link hover-line" href="#">Забыли пароль?</a>
-                    </div>
-                    <input class="button" type="submit" value="Вход">
+            <div class="login-case" id="content">
+
             </div>
         </section>
     </main>
@@ -205,5 +196,80 @@
             </div>
         </div>
     </footer>
+    <script>
+        jQuery(function($) {
+            $(document).ready(function(){
+                showLoginPage();
+            });
+            $(document).on('submit', '#login_form', function(){
+
+
+                const login_form = $(this);
+                const form_data = JSON.stringify(login_form.serializeArray());
+                let postData = { name: 'authUser', params: {} };
+
+                JSON.parse(form_data).forEach(e => { postData.params[`${e.name}`] = e.value; });
+                // отправить данные формы в API
+                $.ajax({
+                    url: "http://fuji.local/api/",
+                    type : "POST",
+                    contentType : 'application/json',
+                    data : JSON.stringify(postData),
+                    success : function(result){
+                        console.log(result.response.result.token);
+                        // сохранить JWT в куки
+                       setCookie("jwt", result.response.result.token, 1);
+
+                        // показать домашнюю страницу и сообщить пользователю, что вход был успешным
+                        //showHomePage();
+                        $('#response').html("<div class='alert alert-success'>Успешный вход в систему.</div>");
+
+                    },
+                    error: function(xhr, resp, text){
+
+                        // при ошибке сообщим пользователю, что вход в систему не выполнен и очистим поля ввода
+                        $('#response').html("<div class='alert alert-danger'>Ошибка входа. Email или пароль указан неверно.</div>");
+                        login_form.find('input').val('');
+                    }
+                });
+
+                return false;
+            });
+
+            function showLoginPage() {
+
+                setCookie("jwt", "", 1);
+
+                const html = `<div class="login__title">
+                    <h1>Добро</h1>
+                    <h1>Пожаловать</h1>
+                </div>
+                <div id="response"></div>
+                <form class="login__form" method="POST" id="login_form">
+                    <input class="input" type="email" name="email" placeholder="Ваша почта" autofocus>
+                    <input class="input" type="password" name="password" placeholder="Ваш пароль" readonly onfocus="this.removeAttribute('readonly')">
+                    <div class="login__help">
+                        <a class="login__help_link hover-line" href="#">Забыли пароль?</a>
+                    </div>
+                    <input class="button" type="submit" value="Вход">
+                </form>`;
+
+                $('#content').html(html);
+                clearResponse();
+                // showLoggedOutMenu();
+            }
+
+            function clearResponse(){
+                $('#response').html('');
+            }
+
+            function setCookie(cname, cvalue, exdays) {
+                var d = new Date();
+                d.setTime(d.getTime() + (exdays* 24 * 60 * 60 * 1000));
+                var expires = "expires="+ d.toUTCString();
+                document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+            }
+        });
+    </script>
 </body>
 </html>

@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="css/registrations.css">
     <link rel="stylesheet" href="fonts/Fontawesome/css/all.css">
     <link rel="shortcut icon" href="../img/logo_sushi.svg" type="image/x-icon">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
     <header class="header">
@@ -40,7 +41,7 @@
                         <i class="fas fa-key"></i>
                         Вход
                     </a>
-                    <a class="nav__links hover-line" href="registration.php">
+                    <a class="nav__links hover-line" href="registration.php" id="sign_up">
                         <i class="fas fa-lock"></i>
                         Регистрация
                     </a>
@@ -136,26 +137,14 @@
     </header>
     <main class="main">
         <!-- LOGIN FORM -->
+
         <section class="login">
             <div class="login__img">
                 <div class="login__background"></div>
             </div>
-            <div class="login-case">
-                <div class="login__title">
-                    <h1>Добро</h1>
-                    <h1>Пожаловать</h1>
-                </div>
-                <form action="../index.html" class="login__form" method="POST" >
-                    <input class="input" type="text" name="username" placeholder="Введите ваше имя" autocomplete="on" autofocus>
-                    <div class="login__choice">
-                        <input class="input mail" type="email" name="username" placeholder="Ваша почта">
-                        <span>или</span>
-                        <input class="input tel" type="tel" name="username" placeholder="Ваш номер">
-                    </div>
-                    <input class="input" type="password" name="password" placeholder="Введите ваш пароль" readonly onfocus="this.removeAttribute('readonly')">
-                    <input class="input" type="password" name="password" placeholder="Повторите пароль" readonly onfocus="this.removeAttribute('readonly')">
-                    <input class="button" type="submit" value="Регистрация">
-                </form>
+            <div class="login-case" id="content">
+                <!-- response-->
+                <!-- response-->
             </div>
         </section>
     </main>
@@ -205,5 +194,72 @@
             </div>
         </div>
     </footer>
+
+    <script >
+        jQuery(function($) {
+
+            // показать форму регистрации
+            $(document).ready( function(){
+
+                const html = `
+                    <div class="login__title">
+                        <h1>Добро</h1>
+                        <h1>Пожаловать</h1>
+                    </div>
+                    <div id="response"></div>
+                    <form class="login__form" method="POST" id="sign_up_form">
+                        <input class="input" type="text" name="name" placeholder="Введите ваше имя" autocomplete="on" autofocus>
+
+                        <input class="input mail" type="email" name="email" placeholder="Ваша почта">
+                        <input class="input tel" type="tel" name="mobile" placeholder="Ваш номер">
+                        <input class="input" type="text" name="addr" placeholder="Ваш адрес">
+                        <input class="input" type="password" name="password" placeholder="Введите ваш пароль" readonly onfocus="this.removeAttribute('readonly')">
+                        <input class="input" type="password" name="rePassword" placeholder="Повторите пароль" readonly onfocus="this.removeAttribute('readonly')">
+                        <input class="button" type="submit" value="Регистрация">
+                    </form>`;
+
+                clearResponse();
+                $('#content').html(html);
+            });
+
+            $(document).on('submit', '#sign_up_form', function(){
+
+                let sign_up_form = $(this);
+                let form_data = JSON.stringify(sign_up_form.serializeArray());
+                let postData = { name: 'registerUser', params: {} };
+
+                JSON.parse(form_data).forEach(e => { postData.params[`${e.name}`] = e.value; });
+                if(postData.params['rePassword'] === postData.params['password'])
+                {
+                    delete postData.params['rePassword'];
+
+                    $.ajax({
+                        url: "http://fuji.local/api/",
+                        type : "POST",
+                        contentType : 'application/json',
+                        data : JSON.stringify(postData),
+                        success : function(result) {
+                            console.log(result);
+                            $('#response').html("<div class='alert alert-success'>Регистрация завершена успешно. Пожалуйста, войдите.</div>");
+                            sign_up_form.find('input').val('');
+                        },
+                        error: function(xhr, resp, text){
+                            $('#response').html("<div class='alert alert-danger'>Невозможно зарегистрироваться. Пожалуйста, свяжитесь с администратором.</div>");
+                        }
+                    });
+
+                }else{
+                    $('#response').html("Пароли указаны некорректно!");
+                    console.log(postData);
+                }
+
+                return false;
+            });
+
+            function clearResponse(){
+                $('#response').html('');
+            }
+        });
+    </script>
 </body>
 </html>

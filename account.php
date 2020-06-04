@@ -147,7 +147,7 @@
                         <div class="account-links__img">
                             <img src="img/logo_sushi.svg">
                         </div>
-                        <button class="btn hover-line">Каталог товаров</button>
+                        <button class="btn hover-line">Данные аккаунта</button>
                     </div>
                     <div class="hr"></div>
                     <div class="btn-case">

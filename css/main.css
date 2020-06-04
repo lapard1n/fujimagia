@@ -238,7 +238,6 @@
 	min-height: 400px;
 	padding: 0 15px 100px;
 	display: flex;
-	display: flex;
 	/* display: flex; */
 	flex-flow: column wrap;
 	justify-content: flex-start;
@@ -254,7 +253,7 @@
 	border-top-right-radius: 0;
 }
 
-.cart__disable {
+.cart {
 	/* ОТКЛЮЧЕНИЕ ФУНКЦИИ КОРЗИНЫ */
 	display: none;
 }
