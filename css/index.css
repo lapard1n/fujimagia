@@ -238,7 +238,6 @@
 	min-height: 400px;
 	padding: 0 15px 100px;
 	display: flex;
-	/* display: flex; */
 	flex-flow: column wrap;
 	justify-content: flex-start;
 	align-items: center;
@@ -253,7 +252,7 @@
 	border-top-right-radius: 0;
 }
 
-.cart {
+.cart__disable {
 	/* ОТКЛЮЧЕНИЕ ФУНКЦИИ КОРЗИНЫ */
 	display: none;
 }
@@ -315,6 +314,7 @@
 	left: 0;
 	z-index: 3;
 	background: #ffffff;
+	display: none;
 }
 .order__clean__disable{
 	display: none;

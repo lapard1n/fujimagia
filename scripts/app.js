@@ -9,5 +9,5 @@ async function app() {
     ]);
     shop.showGoods();
     shop.categoriesControl();
-    shop.cartButtonControl();
+    // shop.cartButtonControl();
 }

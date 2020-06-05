@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Регистрация</title>
-    <link rel="stylesheet" type="text/css" href="css/registrations.css">
+    <link rel="stylesheet" type="text/css" href="css/register.css">
     <link rel="stylesheet" href="fonts/Fontawesome/css/all.css">
     <link rel="shortcut icon" href="../img/logo_sushi.svg" type="image/x-icon">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

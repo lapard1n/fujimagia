@@ -100,7 +100,10 @@ class Api extends Rest
                 , 'userId' => $dataFromDB['id']
             );
             $token = JWT::encode($payLoad, SECRETE_KEY);
-            $data = ['token' => $token];
+            $data = [
+                'token' => $token
+                , 'userID' => $dataFromDB['id']
+            ];
 
             $this->returnResponse(
                 SUCCESS_RESPONSE
@@ -137,6 +140,29 @@ class Api extends Rest
         $this->returnResponse(
             SUCCESS_RESPONSE
             , ['message:' => $msg]
+        );
+    }
+
+    public function getDetailsById()
+    {
+        $userId = $this->validateParams('id', $this->getParams('id'), INTEGER, false);
+
+        $user = new User();
+        $user->setId($userId);
+
+        $data = $user->getUserById();
+
+        if($data) $msg = [
+            'name' => $data['name']
+            , 'email' => $data['email']
+            , 'mobile' => $data['mobile']
+            , 'address' => $data['address']
+        ];
+        else $msg = "user not found";
+
+        $this->returnResponse(
+            SUCCESS_RESPONSE
+            , $msg
         );
     }
 

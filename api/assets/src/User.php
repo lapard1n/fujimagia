@@ -56,6 +56,17 @@ class User
         return false;
     }
 
+    public function getUserById()
+    {
+        $sql = "SELECT * FROM {$this->tableName} WHERE id = :id";
+        $stmt = $this->dbConn->prepare($sql);
+        $stmt->bindParam(':id', $this->id);
+
+        if($stmt->execute()) return $stmt->fetch(PDO::FETCH_ASSOC);
+
+        return false;
+    }
+
     public function insert()
     {
         $sql = "INSERT INTO {$this->tableName} (id, name, email, mobile, address, password) VALUES(null, :name, :email, :mobile, :address, :password)";

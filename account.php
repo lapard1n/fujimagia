@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="css/account.css">
     <link rel="stylesheet" href="fonts/Fontawesome/css/all.css">
     <link rel="shortcut icon" href="img/logo_sushi.svg" type="image/x-icon">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
     <header class="header">
@@ -147,33 +148,38 @@
                         <div class="account-links__img">
                             <img src="img/logo_sushi.svg">
                         </div>
-                        <button class="btn hover-line">Данные аккаунта</button>
+                        <button class="btn hover-line" id="account-details__btn">Данные аккаунта</button>
                     </div>
                     <div class="hr"></div>
                     <div class="btn-case">
                     <div class="account-links__img">
                         <img src="img/main/links_logo.svg">
                     </div>
-                        <button class="btn hover-line">История заказов</button>
+                        <button class="btn hover-line" id="delivery-history__btn">История заказов</button>
                     </div>
                 </div>
             </section>
             <!-- ACCOUNT SECTIONS-CASE -->
             <div class="account-case">
                 <!-- ACCOUNT DATA SECTION -->
-                <section class="setting setting_disable">
-                    <form class="setting__form left" action="">
-                        <label class="setting__label" for="tel">
-                            <h1>Ваше имя:</h1><span class="user-data" id="">Пупа</span>
+<!--                setting_disable-->
+                <section class="setting" id="section-details">
+                    <form class="setting__form left">
+                        <label class="setting__label" for="name">
+                            <h1>Ваше имя:</h1><span class="user-data" id="userName">Пупа</span>
                             <input class="setting__input" type="tel" id="tel" placeholder="Введите новое имя">
                         </label>
                         <label class="setting__label" for="tel">
-                            <h1>Ваш номер:</h1><span class="user-data" id="">+7 (950) 123-45-67</span>
+                            <h1>Ваш номер:</h1><span class="user-data" id="userMobile">+7 (950) 123-45-67</span>
                             <input class="setting__input" type="tel" id="tel" placeholder="Введите новый номер">
                         </label>
                         <label class="setting__label" for="mail">
-                            <h1>Ваш почта:</h1><span class="user-data" id="">pupa_lupa@za.ru</span>
+                            <h1>Ваш почта:</h1><span class="user-data" id="userEmail"></span>
                             <input class="setting__input" type="email" id="mail" placeholder="Введите новую почту">
+                        </label>
+                        <label class="setting__label" for="address">
+                            <h1>Ваш адрес:</h1><span class="user-data" id="userAddress"></span>
+                            <input class="setting__input" type="text" id="address" placeholder="Введите новый адрес">
                         </label>
                     </form>
                     <form class="setting__form right" action="">
@@ -189,7 +195,8 @@
                     </form>
                 </section>
                 <!-- ORDER HISTORY SECTION -->
-                <section class="history history_disable">
+<!--                history_disable-->
+                <section class="history" id="section-history">
                     <div class="cart__sec">
                         <div class="cart__product-sec">Имя товара</div>
                         <div class="cart__quantity-sec">Дата заказа</div>
@@ -297,5 +304,62 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        jQuery(function($) {
+            $(document).ready(function () {
+                $('#section-history').hide();
+
+                const postData = {
+                    name: 'getDetailsById'
+                    , params: {
+                        id: getCookie('userID')
+                    }
+                };
+                $.ajax({
+                    url: "http://fuji.local/api/",
+                    type : "POST",
+                    contentType : 'application/json',
+                    data : JSON.stringify(postData),
+                    success : function(result){
+                        const {name, address, email, mobile} = result.response.result;
+                        console.log(name, address, email, mobile);
+
+                        $("#userName").html(name);
+                        $('#userMobile').html(mobile);
+                        $('#userEmail').html(email);
+                        $('#userAddress').html(address);
+                    },
+
+                    error: function(xhr, resp, text){}
+                })
+            })
+            $(document).on('click', '#account-details__btn', function () {
+                $('#section-history').hide();
+                $('#section-details').show();
+            });
+            $(document).on('click', '#delivery-history__btn', function () {
+                $('#section-details').hide();
+                $('#section-history').show();
+            });
+
+            function getCookie(cname) {
+                var name = cname + "=";
+                var decodedCookie = decodeURIComponent(document.cookie);
+                var ca = decodedCookie.split(';');
+                for(var i = 0; i <ca.length; i++) {
+                    var c = ca[i];
+                    while (c.charAt(0) == ' '){
+                        c = c.substring(1);
+                    }
+
+                    if (c.indexOf(name) == 0) {
+                        return c.substring(name.length, c.length);
+                    }
+                }
+                return "";
+            }
+        });
+    </script>
 </body>
 </html>

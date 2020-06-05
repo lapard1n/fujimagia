@@ -219,6 +219,7 @@
                         console.log(result.response.result.token);
                         // сохранить JWT в куки
                        setCookie("jwt", result.response.result.token, 1);
+                       setCookie("userID", result.response.result.userID, 1);
 
                         // показать домашнюю страницу и сообщить пользователю, что вход был успешным
                         //showHomePage();
