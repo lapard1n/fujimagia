@@ -11,11 +11,7 @@ class Good {
         this.commonCount = 0;
         this.commonPrice = 0;
         this.html = null;
-        this.categoriesHtml = null;
         this.basketHtml = null;
-
-        this.buyButton = null;
-        this.cardQuantity = null;
 
         Good.all.push(this);
 
@@ -38,8 +34,6 @@ class Good {
 
             element.addEventListener('click', () => this[handlerName]());
         }
-
- //       console.log();
     }
 
     basketViewInit(){
@@ -65,22 +59,6 @@ class Good {
             });
         }
     }
-
-    // plus(){
-    //     this.count += 1;
-    //     this.viewUpdate();
-    //     this.addToBasket();
-    // }
-    // minus(){
-    //     // if(this.count != 0)
-    //     {
-    //         this.count -= 1;
-    //         this.viewUpdate();
-    //         this.removeFromBasket();
-    //         this.commonUpdate();
-    //         // this.basketViewUpdate();
-    //     }
-    // }
 
     commonPlus(){
         this.commonCount += 1;

@@ -5,14 +5,8 @@ class Basket {
         this.totalItems = 0;
         
         this.divCartWindow = document.getElementById('cartWindow');
-        this.divEmptyCart = document.getElementById('emptyCart');
-        this.divFullCart = document.getElementById('fullCart');
         this.divCommonPrice = document.getElementById('commonPrice');
-        this.divCartTotal = document.getElementById('cartTotal');
         this.spanTotalCount = document.getElementById('cart__total-count');
-
-        // this.initFromStore();
-        // console.log(res.goods);
 
         this.updateCommonPrice();
     }
@@ -44,6 +38,7 @@ class Basket {
     removeAfter(node, referenceNode){
         referenceNode.parentNode.removeChild(node, referenceNode.nextSibling);
     }
+
     async addGood(good, fromStore = false) {
 
         if(!this.goods.includes(good)){
@@ -85,9 +80,9 @@ class Basket {
         this.updateState(this, good);
     }
 
-    updateState(basketState, goodState){
+    updateState(basketState, goodState = null){
         const bState = {
-            goods: basketState.goods//JSON.stringify(basketState.goods)
+            goods: basketState.goods
             , commonPrice: basketState.commonPrice
             , commonCount: basketState.commonCount
         };

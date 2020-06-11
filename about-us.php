@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>О нас</title>
-    <link rel="stylesheet" type="text/css" href="css/about-us.css">
+    <link rel="stylesheet" type="text/css" href="css/aboutus.css">
     <link rel="stylesheet" href="fonts/Fontawesome/css/all.css">
     <link rel="shortcut icon" href="img/logo_sushi.svg" type="image/x-icon">
 </head>
@@ -26,7 +26,7 @@
                 </a>
             </div>
             <!-- HEADER MENU LOGO -->
-            <a href="index.php" class="nav__logo">
+            <a href="index_bak.php" class="nav__logo">
                 <img src="img/header/header_sushi.svg">
                 <div class="nav__logo_text">
                     <span>Магия</span>

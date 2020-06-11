@@ -1,6 +1,5 @@
 <?php
 
-
 namespace assets\src;
 
 use PDO;

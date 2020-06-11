@@ -77,14 +77,14 @@ class Api extends Rest
 
         try {
             $dataFromDB = $user->getUser();
-
+            //Check user exist
             if(!is_array($dataFromDB)){
                 $this->returnResponse(
                     INVALID_USER_PASS
                     , ["message" => "Error login data "]
                 );
             }
-
+            //Check login data
             if(!password_verify($password, $dataFromDB['password']))
             {
                 $this->returnResponse(
@@ -166,106 +166,48 @@ class Api extends Rest
         );
     }
 
-    /* Customer Methods */
-    public function addCustomer()
+    public function orderIssue()
     {
+        $products = $this->validateParams('products', $this->getParams('products'), STRING, false);
+        $address = $this->validateParams('address', $this->getParams('address'), STRING, false);
+        $mobile = $this->validateParams('mobile', $this->getParams('mobile'), STRING, false);
+        $client = $this->validateParams('client', $this->getParams('client'), STRING, false);
+        $email = $this->validateParams('email', $this->getParams('email'), STRING, false);
+        $cost = $this->validateParams('cost', $this->getParams('cost'), STRING, false);
+        $name = $this->validateParams('name', $this->getParams('name'), STRING, false);
 
-        $name = $this->validateParams('name', $this->params['name'], STRING, false);
-        $email = $this->validateParams('email', $this->params['email'], STRING, false);
-        $addr = $this->validateParams('addr', $this->params['addr'], STRING, false);
-        $mobile = $this->validateParams('mobile', $this->params['mobile'], INTEGER, false);
 
-        $customer = new Customer;
-        $customer->setName($name)
-            ->setAddress($addr)
-            ->setEmail($email)
-            ->setMobile($mobile)
-            ->setCreatedBy($this->userId)
-            ->setCreatedOn(date('Y-m-d'));
+        $order = new Order();
+        $order->setProducts($products)
+              ->setClient($client)
+              ->setCost($cost)
+              ->setName($name)
+              ->setMobile($mobile)
+              ->setEmail($email)
+              ->setAddress($address);
 
-        if (!$customer->insert()) $msg = "Failed to insert";
-        else $msg = "Insert Succesfuly";
+        if($order->insert()) $msg = "Insert Successfully";
+        else $msg = "Failed to insert";
 
         $this->returnResponse(
             SUCCESS_RESPONSE
-            , ['message:' => $msg]
+            , ['message' => $msg]
         );
     }
 
-    public function updateCustomer()
+    public function ordersHistory()
     {
-        $customerId = $this->validateParams('customerId', $this->params['customerId'], INTEGER, false);
-        $name = $this->validateParams('name', $this->params['name'], STRING, false);
-        $email = $this->validateParams('email', $this->params['email'], STRING, false);
-        $addr = $this->validateParams('addr', $this->params['addr'], STRING, false);
-        $mobile = $this->validateParams('mobile', $this->params['mobile'], INTEGER, false);
+        $client = $this->validateParams('client', $this->getParams('client'), STRING, false);
 
-        $customer = new Customer;
-        $customer->setName($name)
-            ->setId($customerId)
-            ->setAddress($addr)
-            ->setEmail($email)
-            ->setMobile($mobile)
-            ->setUpdatedBy($this->userId)
-            ->setUpdatedOn(date('Y-m-d'));
+        $order = new Order();
+        $order->setClient($client);
 
-        if (!$customer->update()) $msg = "Failed to update customer";
-        else $msg = "Customer was updated Succesfuly";
+        if(!empty($client)) $msg = $order->getOrdersByClient();
+        else $msg = "Orders not found";
 
         $this->returnResponse(
             SUCCESS_RESPONSE
-            , ['message:' => $msg]
+            , $msg
         );
     }
-
-    public function getCustomerDetails()
-    {
-        $customerId = $this->validateParams(
-            'customerId'
-            , $this->params['customerId']
-            , INTEGER
-        );
-
-        $customerObj = new Customer;
-        $customerObj->setId($customerId);
-        $customer = $customerObj->getCustomerDetailsById();
-
-        if (!is_array($customer))
-        {
-            $this->returnResponse(
-                SUCCESS_RESPONSE
-                , ['message' => 'Customer details not found']
-            );
-        }
-
-        $this->returnResponse(
-            SUCCESS_RESPONSE
-            , [
-                'customerId' => $customer['id'],
-                'customerName' => $customer['name'],
-                'email' => $customer['email'],
-                'mobile' => $customer['mobile'],
-                'address' => $customer['address'],
-                'createdBy' => $customer['created_user'],
-                'lastUpdatedBy' => $customer['updated_user'],
-            ]
-        );
-    }
-
-    public function deleteCustomer()
-    {
-        $customerId = $this->validateParams('customerId', $this->params['customerId'], INTEGER);
-
-        $cusotmerObj = new Customer();
-        $cusotmerObj->setId($customerId);
-
-        if(!$cusotmerObj->delete()) $message = "Failed to delete.";
-        else $message = "Delete customer successfully";
-
-        $this->returnResponse(
-            SUCCESS_RESPONSE
-            , ['message' => $message]
-        );
-    }
-    /* Customers Methods */
 }

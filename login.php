@@ -27,7 +27,7 @@
                 </a>
             </div>
             <!-- HEADER MENU LOGO -->
-            <a class="nav__logo" href="index.php">
+            <a class="nav__logo" href="index_bak.php">
                 <img src="img/header/header_sushi.svg">
                 <div class="nav__logo_text">
                     <span>Магия</span>

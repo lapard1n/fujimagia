@@ -14,7 +14,7 @@
                 <img src="img/shushi-smile.png">
             </div>
             <div class="orderreg__title"><i class="fas fa-shopping-cart"></i>Ваш заказ уже в пути!</div>
-            <a class="orderreg__price-btn" href="index.php">
+            <a class="orderreg__price-btn" href="index_bak.php">
                 <input type="button" value="На главную">
             </a>
         </div>
