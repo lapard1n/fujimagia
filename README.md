@@ -16,7 +16,6 @@
 > * Layout & Git: [lapard1n](https://github.com/lapard1n);
 > * JS + Back-end: [whereismm](https://github.com/whereismm);
 
-
 ---
 
 ## warning:
