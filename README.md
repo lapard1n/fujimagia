@@ -29,7 +29,7 @@
 
 ---
 
-<h1 align="center"><a href="https://lapard1n.github.io/mogo">Fuji Magia:</a></h1>
+<h1 align="center">Fuji Magia:</h1>
 
 ![page header](/img/bg.png)
 
